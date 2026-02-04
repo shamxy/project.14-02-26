@@ -9,7 +9,8 @@
     <meta property="og:title" content="A Special Message for My Pookie">
     <meta property="og:description" content="I have a question for you...">
     <meta property="og:locale" content="en_US" />
-    <meta property="og:image" content="image/favicon.png"> <link rel="stylesheet" href="https://unpkg.com/bulma@0.8.0/css/bulma.min.css" />
+    <meta property="og:image" content="image/favicon.png"> 
+    <link rel="stylesheet" href="https://unpkg.com/bulma@0.8.0/css/bulma.min.css" />
     <link rel="stylesheet" href="https://unpkg.com/bulma-tooltip@0.1.5/dist/bulma-tooltip.min.css" />
     <link rel="stylesheet" type="text/css" href="css/menikah.css" />
     <link rel="stylesheet" type="text/css" href="css/jquery.countdown.css" />
@@ -38,6 +39,7 @@
             <div class="navbar-end">
               <div class="navbar-item"><a class="navbar-item" href="#regular-section">Message</a></div>
               <div class="navbar-item"><a class="navbar-item" href="#tentang-pasangan">Memories</a></div>
+              <div class="navbar-item"><a class="navbar-item" href="#photo-library">Gallery</a></div>
               <div class="navbar-item"><a class="navbar-item" href="#rsvp">The Question</a></div>
             </div>
           </div>
@@ -47,10 +49,7 @@
           <div class="container has-text-centered">
             <h1 class="subtitle" data-aos="fade-up">To My Favorite Person</h1>
             <h2 class="title" data-aos="fade-up">Will You Be My Girlfriend?</h2>
-            <h4 class="subtitle" data-aos="fade-up">
-                Specifically for: Pookie
-                <br>
-                From: [Your Name Here] </h4>
+            <h4 class="subtitle" data-aos="fade-up">Specifically for: Pookie<br><br>From: [Your Name Here]</h4>
           </div>
         </div>
 
@@ -62,6 +61,7 @@
                   <li class="is-active"><a href="#home">Home</a></li>
                   <li><a href="#regular-section">Letter</a></li>
                   <li><a href="#tentang-pasangan">Memories</a></li>
+                  <li><a href="#photo-library">Gallery</a></li>
                   <li><a href="#rsvp">Answer</a></li>
                 </ul>
               </div>
@@ -74,57 +74,28 @@
     <div class="main-content">
       <section class="section-light no-padding-top regular-section has-text-centered" id="regular-section">
         <div data-aos="fade-up" data-aos-easing="linear">
-          <br><br>
-          <h1 class="title">Hey Pookie,</h1>
+          <br><br><h1 class="title">Hey Pookie,</h1>
         </div>
-<section class="section-dark" id="together-timer">
-  <div class="container has-text-centered" data-aos="fade-up">
-    <h1 class="title section-title">We've been together for...</h1>
-    <div id="together-counter">
-      <ul id="hitungmundur"> <li><span id="t-days">00</span><p class="days_text">Days</p></li>
-        <li class="separator">:</li>
-        <li><span id="t-hours">00</span><p class="hours_text">Hours</p></li>
-        <li class="separator">:</li>
-        <li><span id="t-minutes">00</span><p class="minutes_text">Minutes</p></li>
-        <li class="separator">:</li>
-        <li><span id="t-seconds">00</span><p class="seconds_text">Seconds</p></li>
-      </ul>
-    </div>
-  </div>
-</section>
 
-<script>
-  function updateTogetherTimer() {
-    // SET YOUR DATE HERE (Year, Month-1, Day)
-    // November is month 10 in JavaScript (0=Jan, 10=Nov)
-    const startDate = new Date(2025, 10, 11, 0, 0, 0); 
-    const now = new Date();
-    const diff = now - startDate;
+        <div class="container has-text-centered" data-aos="fade-up" style="margin-bottom: 40px;">
+          <h1 class="title section-title">We've been together for...</h1>
+          <ul id="hitungmundur"> 
+            <li><span id="t-days">00</span><p class="days_text">Days</p></li>
+            <li class="separator">:</li>
+            <li><span id="t-hours">00</span><p class="hours_text">Hours</p></li>
+            <li class="separator">:</li>
+            <li><span id="t-minutes">00</span><p class="minutes_text">Minutes</p></li>
+            <li class="separator">:</li>
+            <li><span id="t-seconds">00</span><p class="seconds_text">Seconds</p></li>
+          </ul>
+        </div>
 
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-    const minutes = Math.floor((diff / (1000 * 60)) % 60);
-    const seconds = Math.floor((diff / 1000) % 60);
-
-    // This updates the numbers on your screen
-    document.getElementById("t-days").innerText = days.toString().padStart(2, '0');
-    document.getElementById("t-hours").innerText = hours.toString().padStart(2, '0');
-    document.getElementById("t-minutes").innerText = minutes.toString().padStart(2, '0');
-    document.getElementById("t-seconds").innerText = seconds.toString().padStart(2, '0');
-  }
-  
-  // Refresh every second
-  setInterval(updateTogetherTimer, 1000);
-  updateTogetherTimer();
-</script>
         <p class="bodytext" data-aos="fade-up" data-aos-easing="linear">
-          Ever since we started talking, my days have been brighter. 
-          <br />
+          Ever since we started talking, my days have been brighter.<br><br>
           I made this site just to tell you how much you mean to me.
         </p>
 
         <span class="space40px"></span>
-
         <div data-aos="fade-up" data-aos-easing="linear">
           <div class="nama-lengkap">Me</div>
           <div class="ampersand">❤️</div>
@@ -144,7 +115,6 @@
                   </div>
                 </article>
               </div>
-              
               <div class="tile is-parent">
                 <article class="tile is-child notification foto2" data-aos="fade-up">
                   <div class="content">
@@ -164,15 +134,25 @@
         </div>
       </section>
 
+      <section class="section-light regular-section" id="photo-library">
+        <div class="container">
+          <div class="column is-12 has-text-centered" data-aos="fade-up">
+            <h1 class="title section-title">Our Moments</h1>
+            <p class="subtitle">A little gallery of us.</p>
+          </div>
+          <div class="columns is-multiline" data-aos="fade-up">
+            <div class="column is-4"><div class="card"><div class="card-image"><figure class="image is-4by5"><img src="image/photo1.jpg" alt="Us 1"></figure></div></div></div>
+            <div class="column is-4"><div class="card"><div class="card-image"><figure class="image is-4by5"><img src="image/photo2.jpg" alt="Us 2"></figure></div></div></div>
+            <div class="column is-4"><div class="card"><div class="card-image"><figure class="image is-4by5"><img src="image/photo3.jpg" alt="Us 3"></figure></div></div></div>
+          </div>
+        </div>
+      </section>
+
       <section class="section-dark contact" id="rsvp">
         <div class="container">
           <div class="column is-12 has-text-centered" data-aos="zoom-in">
             <h1 class="title section-title">So, Is That A Yes?</h1>
-            <p class="h2 subtitle">
-              I'm waiting for your answer!
-              <br><br>
-              Tap the button below:
-            </p>
+            <p class="h2 subtitle">I'm waiting for your answer!<br><br>Tap the button below:</p>
             <a href="https://wa.me/628123456789?text=YES!%20I%20will%20be%20your%20girlfriend!%20❤️" class="button btn-whatsapp" target="_blank">
               <i class="fas fa-heart"></i> YES!
             </a>
@@ -193,6 +173,22 @@
     <script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
     <script>
       AOS.init({ easing: "ease-out", duration: 800 });
+
+      function updateTogetherTimer() {
+        const startDate = new Date(2025, 10, 11, 0, 0, 0); 
+        const now = new Date();
+        const diff = now - startDate;
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        const minutes = Math.floor((diff / (1000 * 60)) % 60);
+        const seconds = Math.floor((diff / 1000) % 60);
+        document.getElementById("t-days").innerText = days.toString().padStart(2, '0');
+        document.getElementById("t-hours").innerText = hours.toString().padStart(2, '0');
+        document.getElementById("t-minutes").innerText = minutes.toString().padStart(2, '0');
+        document.getElementById("t-seconds").innerText = seconds.toString().padStart(2, '0');
+      }
+      setInterval(updateTogetherTimer, 1000);
+      updateTogetherTimer();
     </script>
   </body>
 </html>
