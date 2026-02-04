@@ -21,6 +21,7 @@
   </head>
 
   <body>
+    <audio id="bgMusic" src="audio.mp3" loop></audio>
     <div class="preloader-wrapper">
       <div class="preloader">
         <img src="image/favicon.png" alt="Flower" />
@@ -190,5 +191,22 @@
       setInterval(updateTogetherTimer, 1000);
       updateTogetherTimer();
     </script>
-  </body>
+ <script>
+  // This function starts the music
+  function playMusic() {
+    const music = document.getElementById("bgMusic");
+    music.play().catch(error => {
+      console.log("Browser blocked autoplay. Waiting for user interaction.");
+    });
+    // Remove the listeners once music starts so they don't fire again
+    document.removeEventListener('click', playMusic);
+    document.removeEventListener('scroll', playMusic);
+    document.removeEventListener('touchstart', playMusic);
+  }
+
+  // Listen for any interaction to trigger the music
+  document.addEventListener('click', playMusic);
+  document.addEventListener('scroll', playMusic);
+  document.addEventListener('touchstart', playMusic);
+</script> </body>
 </html>
