@@ -95,7 +95,9 @@
 
 <script>
   function updateTogetherTimer() {
-    const startDate = new Date("2023-01-01T00:00:00"); // CHANGE THIS to your anniversary date (YYYY-MM-DD)
+    // SET YOUR DATE HERE (Year, Month-1, Day)
+    // November is month 10 in JavaScript (0=Jan, 10=Nov)
+    const startDate = new Date(2025, 10, 11, 0, 0, 0); 
     const now = new Date();
     const diff = now - startDate;
 
@@ -104,11 +106,14 @@
     const minutes = Math.floor((diff / (1000 * 60)) % 60);
     const seconds = Math.floor((diff / 1000) % 60);
 
-    document.getElementById("t-days").innerText = days;
-    document.getElementById("t-hours").innerText = hours;
-    document.getElementById("t-minutes").innerText = minutes;
-    document.getElementById("t-seconds").innerText = seconds;
+    // This updates the numbers on your screen
+    document.getElementById("t-days").innerText = days.toString().padStart(2, '0');
+    document.getElementById("t-hours").innerText = hours.toString().padStart(2, '0');
+    document.getElementById("t-minutes").innerText = minutes.toString().padStart(2, '0');
+    document.getElementById("t-seconds").innerText = seconds.toString().padStart(2, '0');
   }
+  
+  // Refresh every second
   setInterval(updateTogetherTimer, 1000);
   updateTogetherTimer();
 </script>
