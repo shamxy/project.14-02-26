@@ -1,447 +1,438 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="theme-color" content="#BC8887" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>For My Pookie</title>
-    
-    <meta property="og:title" content="A Special Message for My Pookie">
-    <meta property="og:description" content="I have a question for you...">
-    <meta property="og:locale" content="en_US" />
-    <meta property="og:image" content="image/favicon.png"> 
+    <meta charset="utf-8" />
+    <meta name="theme-color" content="#BC8887" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>For My Pookie</title>
+    
+    <meta property="og:title" content="A Special Message for My Pookie">
+    <meta property="og:description" content="I have a question for you...">
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:image" content="image/favicon.png"> 
 
-    <link rel="stylesheet" href="https://unpkg.com/bulma@0.8.0/css/bulma.min.css" />
-    <link rel="stylesheet" href="https://unpkg.com/bulma-tooltip@0.1.5/dist/bulma-tooltip.min.css" />
-    <link rel="stylesheet" type="text/css" href="css/menikah.css" />
-    <link rel="stylesheet" type="text/css" href="css/jquery.countdown.css" />
-    <link rel="icon" type="image/png" href="image/favicon.png" />
-    
-    <script src="https://kit.fontawesome.com/2828f7885a.js" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script src="js/jquery.coundown.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/bulma@0.8.0/css/bulma.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/bulma-tooltip@0.1.5/dist/bulma-tooltip.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/menikah.css" />
+    <link rel="stylesheet" type="text/css" href="css/jquery.countdown.css" />
+    <link rel="icon" type="image/png" href="image/favicon.png" />
+    
+    <script src="https://kit.fontawesome.com/2828f7885a.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="js/jquery.coundown.js"></script>
 </head>
 
 <body>
-    <audio id="bgMusic" src="https://files.catbox.moe/y65gcn.mp3" loop></audio>
+    <audio id="bgMusic" src="https://files.catbox.moe/y65gcn.mp3" loop></audio>
 
-    <div class="preloader-wrapper">
-        <div class="preloader">
-            <img src="image/favicon.png" alt="Flower" />
-        </div>
-    </div>
+    <div class="preloader-wrapper">
+        <div class="preloader">
+            <img src="image/favicon.png" alt="Flower" />
+        </div>
+    </div>
 
-    <div class="header-wrapper" id="home">
-        <section class="hero is-large">
-            <nav class="navbar is-transparent is-hidden-desktop">
-                <div class="navbar-brand is-fixed-top">
-                    <div class="navbar-burger burger" data-target="mobile-nav">
-                        <span></span><span></span><span></span>
-                    </div>
-                </div>
-                <div id="mobile-nav" class="navbar-menu">
-                    <div class="navbar-end">
-                        <div class="navbar-item"><a class="navbar-item" href="#timeline">Timeline</a></div>
-                        <div class="navbar-item"><a class="navbar-item" href="#milestones">Milestones</a></div>
-                        <div class="navbar-item"><a class="navbar-item" href="#small-things">The Details</a></div>
-                        <div class="navbar-item"><a class="navbar-item" href="#bucket-list">Bucket List</a></div>
-                        <div class="navbar-item"><a class="navbar-item" href="#rsvp">The Question</a></div>
-                    </div>
-                </div>
-            </nav>
+    <div class="header-wrapper" id="home">
+        <section class="hero is-large">
+            <nav class="navbar is-transparent is-hidden-desktop">
+                <div class="navbar-brand is-fixed-top">
+                    <div class="navbar-burger burger" data-target="mobile-nav">
+                        <span></span><span></span><span></span>
+                    </div>
+                </div>
+                <div id="mobile-nav" class="navbar-menu">
+                    <div class="navbar-end">
+                        <div class="navbar-item"><a class="navbar-item" href="#timeline">Timeline</a></div>
+                        <div class="navbar-item"><a class="navbar-item" href="#milestones">Milestones</a></div>
+                        <div class="navbar-item"><a class="navbar-item" href="#small-things">The Details</a></div>
+                        <div class="navbar-item"><a class="navbar-item" href="#bucket-list">Bucket List</a></div>
+                        <div class="navbar-item"><a class="navbar-item" href="#rsvp">The Question</a></div>
+                    </div>
+                </div>
+            </nav>
 
-            <div class="hero-body">
-                <div class="container has-text-centered">
-                    <h1 class="subtitle" data-aos="fade-up">A Journey Just For You</h1>
-                    <h2 class="title" data-aos="fade-up">Will You Be My Girlfriend?</h2>
-                    <h4 class="subtitle" data-aos="fade-up">Specifically for: Pookie<br><br>From: Shamoye</h4>
-                </div>
-            </div>
+            <div class="hero-body">
+                <div class="container has-text-centered">
+                    <h1 class="subtitle" data-aos="fade-up">A Journey Just For You</h1>
+                    <h2 class="title" data-aos="fade-up">Will You Be My Girlfriend?</h2>
+                    <h4 class="subtitle" data-aos="fade-up">Specifically for: Pookie<br><br>From: Shamoye</h4>
+                </div>
+            </div>
 
-            <div class="hero-foot">
-                <div class="hero-foot--wrapper">
-                    <div class="columns">
-                        <div class="column is-12 hero-menu-desktop has-text-centered">
-                            <ul>
-                                <li class="is-active"><a href="#home">Home</a></li>
-                                <li><a href="#timeline">Timeline</a></li>
-                                <li><a href="#milestones">Milestones</a></li>
-                                <li><a href="#small-things">Details</a></li>
-                                <li><a href="#bucket-list">Bucket List</a></li>
-                                <li><a href="#rsvp">Answer</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
+            <div class="hero-foot">
+                <div class="hero-foot--wrapper">
+                    <div class="columns">
+                        <div class="column is-12 hero-menu-desktop has-text-centered">
+                            <ul>
+                                <li class="is-active"><a href="#home">Home</a></li>
+                                <li><a href="#timeline">Timeline</a></li>
+                                <li><a href="#milestones">Milestones</a></li>
+                                <li><a href="#small-things">Details</a></li>
+                                <li><a href="#bucket-list">Bucket List</a></li>
+                                <li><a href="#rsvp">Answer</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
 
-    <div class="main-content">
-        
-        <section class="section-light no-padding-top regular-section has-text-centered" id="timeline">
-            <div data-aos="fade-up">
-                <br><br><h1 class="title">Our Timeline</h1>
-                <p class="subtitle">Every second counts since we started this journey.</p>
-            </div>
+    <div class="main-content">
+        
+        <section class="section-light no-padding-top regular-section has-text-centered" id="timeline">
+            <div data-aos="fade-up">
+                <br><br><h1 class="title">Our Timeline</h1>
+                <p class="subtitle">Every second counts since we started this journey.</p>
+            </div>
 
-            <div class="container has-text-centered" data-aos="fade-up" style="margin: 40px 0;">
-                <ul id="hitungmundur"> 
-                    <li><span id="t-days">00</span><p class="days_text">Days</p></li>
-                    <li class="separator">:</li>
-                    <li><span id="t-hours">00</span><p class="hours_text">Hours</p></li>
-                    <li class="separator">:</li>
-                    <li><span id="t-minutes">00</span><p class="minutes_text">Minutes</p></li>
-                    <li class="separator">:</li>
-                    <li><span id="t-seconds">00</span><p class="seconds_text">Seconds</p></li>
-                </ul>
-            </div>
-        </section>
+            <div class="container has-text-centered" data-aos="fade-up" style="margin: 40px 0;">
+                <ul id="hitungmundur"> 
+                    <li><span id="t-days">00</span><p class="days_text">Days</p></li>
+                    <li class="separator">:</li>
+                    <li><span id="t-hours">00</span><p class="hours_text">Hours</p></li>
+                    <li class="separator">:</li>
+                    <li><span id="t-minutes">00</span><p class="minutes_text">Minutes</p></li>
+                    <li class="separator">:</li>
+                    <li><span id="t-seconds">00</span><p class="seconds_text">Seconds</p></li>
+                </ul>
+            </div>
+        </section>
 
-        <section class="section-dark regular-section" id="distance-section">
-            <div class="container">
-                <div class="columns is-vcentered has-text-centered">
-                    <div class="column" data-aos="fade-right">
-                        <h2 class="subtitle" style="color: #FFB6C1; font-weight: 700;">Pookie</h2>
-                        <h1 class="title is-2" style="color: white; margin-bottom: 10px;">New York</h1>
-                        <p style="color: #FFFFFF; font-size: 2.2rem; font-weight: 800; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);" id="local-time-1">00:00:00 AM</p>
-                    </div>
+        <section class="section-dark regular-section" id="distance-section">
+            <div class="container">
+                <div class="columns is-vcentered has-text-centered">
+                    <div class="column" data-aos="fade-right">
+                        <h2 class="subtitle" style="color: #FFB6C1; font-weight: 700;">Pookie</h2>
+                        <h1 class="title is-2" style="color: white; margin-bottom: 10px;">New York</h1>
+                        <p style="color: #FFFFFF; font-size: 2.2rem; font-weight: 800; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);" id="local-time-1">00:00:00 AM</p>
+                    </div>
 
-                    <div class="column is-4" data-aos="zoom-in">
-                        <div style="border-bottom: 3px dashed #BC8887; position: relative; height: 50px; margin-bottom: 25px;">
-                            <i class="fas fa-plane" style="color: #BC8887; position: absolute; left: 50%; transform: translateX(-50%); top: 32px; font-size: 2rem;"></i>
-                        </div>
-                        <p style="color: #BC8887; font-weight: 900; letter-spacing: 2px; font-size: 1.2rem;">5116.97 MILES APART</p>
-                    </div>
+                    <div class="column is-4" data-aos="zoom-in">
+                        <div style="border-bottom: 3px dashed #BC8887; position: relative; height: 50px; margin-bottom: 25px;">
+                            <i class="fas fa-plane" style="color: #BC8887; position: absolute; left: 50%; transform: translateX(-50%); top: 32px; font-size: 2rem;"></i>
+                        </div>
+                        <p style="color: #BC8887; font-weight: 900; letter-spacing: 2px; font-size: 1.2rem;">5116.97 MILES APART</p>
+                    </div>
 
-                    <div class="column" data-aos="fade-left">
-                        <h2 class="subtitle" style="color: #FFB6C1; font-weight: 700;">Shamoye</h2>
-                        <h1 class="title is-2" style="color: white; margin-bottom: 10px;">Accra</h1>
-                        <p style="color: #FFFFFF; font-size: 2.2rem; font-weight: 800; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);" id="local-time-2">00:00:00 AM</p>
-                    </div>
-                </div>
-                <div class="column is-12 has-text-centered" style="margin-top: 50px;" data-aos="fade-up">
-                    <p class="title is-4" style="font-style: italic; color: #FFFFFF; font-weight: 600;">
-                        "Distance is just a test to see how far love can travel."
-                    </p>
-                </div>
-            </div>
-        </section>
+                    <div class="column" data-aos="fade-left">
+                        <h2 class="subtitle" style="color: #FFB6C1; font-weight: 700;">Shamoye</h2>
+                        <h1 class="title is-2" style="color: white; margin-bottom: 10px;">Accra</h1>
+                        <p style="color: #FFFFFF; font-size: 2.2rem; font-weight: 800; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);" id="local-time-2">00:00:00 AM</p>
+                    </div>
+                </div>
+                <div class="column is-12 has-text-centered" style="margin-top: 50px;" data-aos="fade-up">
+                    <p class="title is-4" style="font-style: italic; color: #FFFFFF; font-weight: 600;">
+                        "Distance is just a test to see how far love can travel."
+                    </p>
+                </div>
+            </div>
+        </section>
 
-        <section class="section-dark" id="our-story">
-            <div class="container has-text-centered">
-                <div class="column is-8 is-offset-2" data-aos="fade-up">
-                    <h1 class="title section-title">How It All Began</h1>
-                    <p class="bodytext">
-                        I remember the first time we spoke. It wasn't just a normal conversation; it was the start of something that changed my world. 
-                        From the late-night talks to the small moments that only we understand, every step has led me here.
-                        <br><br>
-                        You aren't just someone I talk to; you're the person I look forward to seeing every single day. 
-                        This website is just a small way to show you how much I value what we have.
-                    </p>
-                </div>
-            </div>
-        </section>
+        <section class="section-dark" id="our-story">
+            <div class="container has-text-centered">
+                <div class="column is-8 is-offset-2" data-aos="fade-up">
+                    <h1 class="title section-title">How It All Began</h1>
+                    <p class="bodytext">
+                        I remember the first time we spoke. It wasn't just a normal conversation; it was the start of something that changed my world. 
+                        From the late-night talks to the small moments that only we understand, every step has led me here.
+                        <br><br>
+                        You aren't just someone I talk to; you're the person I look forward to seeing every single day. 
+                        This website is just a small way to show you how much I value what we have.
+                    </p>
+                </div>
+            </div>
+        </section>
 
-        <section class="section-light regular-section" id="milestones">
-            <div class="container">
-                <div class="column is-12 has-text-centered" data-aos="fade-up">
-                    <h1 class="title section-title">Our Milestones</h1>
-                </div>
-                <div class="columns is-vcentered" data-aos="fade-up">
-                    <div class="column is-10 is-offset-1">
-                        <div class="content">
-                            <table class="table is-fullwidth is-striped">
-                                <tbody>
-                                    <tr><td class="has-text-weight-bold">October 22, 2025</td><td>The Day We First Met / Spoke</td></tr>
-                                    <tr><td class="has-text-weight-bold">November 11, 2025</td><td>Our First Meaningful Moment / Date</td></tr>
-                                    <tr><td class="has-text-weight-bold">January 20, 2026</td><td>90 Days of Knowing Each Other</td></tr>
-                                    <tr><td class="has-text-weight-bold">Today</td><td>The Day I Asked You This Question...</td></tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
+        <section class="section-light regular-section" id="milestones">
+            <div class="container">
+                <div class="column is-12 has-text-centered" data-aos="fade-up">
+                    <h1 class="title section-title">Our Milestones</h1>
+                </div>
+                <div class="columns is-vcentered" data-aos="fade-up">
+                    <div class="column is-10 is-offset-1">
+                        <div class="content">
+                            <table class="table is-fullwidth is-striped">
+                                <tbody>
+                                    <tr><td class="has-text-weight-bold">October 22, 2025</td><td>The Day We First Met / Spoke</td></tr>
+                                    <tr><td class="has-text-weight-bold">November 11, 2025</td><td>Our First Meaningful Moment / Date</td></tr>
+                                    <tr><td class="has-text-weight-bold">January 20, 2026</td><td>90 Days of Knowing Each Other</td></tr>
+                                    <tr><td class="has-text-weight-bold">Today</td><td>The Day I Asked You This Question...</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
 <section class="section-light regular-section" id="photo-library">
-            <div class="container">
-                <div class="column is-12 has-text-centered" data-aos="fade-up">
-                    <h1 class="title section-title">Our Favorite Moments</h1>
-                    <p class="subtitle">A visual look at our memories together.</p>
-                </div>
-                <div class="columns is-multiline" data-aos="fade-up">
-                    <div class="column is-4">
-                        <div class="card">
-                            <div class="card-image">
-                                <figure class="image is-4by5">
-                                    <img src="photo1.jpg" alt="Memory 1">
-                                </figure>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="column is-4">
-                        <div class="card">
-                            <div class="card-image">
-                                <figure class="image is-4by5">
-                                    <img src="photo2.jpg" alt="Memory 2">
-                                </figure>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="column is-4">
-                        <div class="card">
-                            <div class="card-image">
-                                <figure class="image is-4by5">
-                                    <img src="photo3.jpg" alt="Memory 3">
-                                </figure>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="column is-4">
-                        <div class="card">
-                            <div class="card-image">
-                                <figure class="image is-4by5">
-                                    <img src="photo4.jpg" alt="Memory 4">
-                                </figure>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="column is-4">
-                        <div class="card">
-                            <div class="card-image">
-                                <figure class="image is-4by5">
-                                    <img src="photo5.jpg" alt="Memory 5">
-                                </figure>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="column is-4">
-                        <div class="card">
-                            <div class="card-image">
-                                <figure class="image is-4by5">
-                                    <img src="photo6.jpg" alt="Memory 6">
-                                </figure>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <section class="section-light regular-section" id="reasons">
-            <div class="container">
-                <div class="column has-text-centered is-12">
-                    <h1 class="title section-title" data-aos="fade-up">Three Simple Reasons</h1>
-                    <div class="tile is-ancestor">
-                        <div class="tile is-parent">
-                            <article class="tile is-child notification foto1" data-aos="fade-up">
-                                <div class="content">
-                                    <p class="title-foto">Your Kindness</p>
-                                    <p class="subtitle-foto">The way you treat people and the way you care for me is unmatched.</p>
-                                </div>
-                            </article>
-                        </div>
-                        <div class="tile is-parent">
-                            <article class="tile is-child notification foto2" data-aos="fade-up">
-                                <div class="content">
-                                    <p class="title-foto">Your Laughter</p>
-                                    <p class="subtitle-foto">It's my favorite sound in the world and I want to hear it forever.</p>
-                                </div>
-                            </article>
-                        </div>
-                        <div class="tile is-parent">
-                            <article class="tile is-child notification foto3" data-aos="fade-up">
-                                <div class="content">
-                                    <p class="title-foto">Your Support</p>
-                                    <p class="subtitle-foto">You make me want to be a better version of myself every single day.</p>
-                                </div>
-                            </article>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+            <div class="container">
+                <div class="column is-12 has-text-centered" data-aos="fade-up">
+                    <h1 class="title section-title">Our Favorite Moments</h1>
+                    <p class="subtitle">A visual look at our memories together.</p>
+                </div>
+                <div class="columns is-multiline" data-aos="fade-up">
+                    <div class="column is-4">
+                        <div class="card">
+                            <div class="card-image">
+                                <figure class="image is-4by5">
+                                    <img src="photo1.jpg" alt="Memory 1">
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column is-4">
+                        <div class="card">
+                            <div class="card-image">
+                                <figure class="image is-4by5">
+                                    <img src="photo2.jpg" alt="Memory 2">
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column is-4">
+                        <div class="card">
+                            <div class="card-image">
+                                <figure class="image is-4by5">
+                                    <img src="photo3.jpg" alt="Memory 3">
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column is-4">
+                        <div class="card">
+                            <div class="card-image">
+                                <figure class="image is-4by5">
+                                    <img src="photo4.jpg" alt="Memory 4">
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column is-4">
+                        <div class="card">
+                            <div class="card-image">
+                                <figure class="image is-4by5">
+                                    <img src="photo5.jpg" alt="Memory 5">
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column is-4">
+                        <div class="card">
+                            <div class="card-image">
+                                <figure class="image is-4by5">
+                                    <img src="photo6.jpg" alt="Memory 6">
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section-light regular-section" id="reasons">
+            <div class="container">
+                <div class="column has-text-centered is-12">
+                    <h1 class="title section-title" data-aos="fade-up">Three Simple Reasons</h1>
+                    <div class="tile is-ancestor">
+                        <div class="tile is-parent">
+                            <article class="tile is-child notification foto1" data-aos="fade-up">
+                                <div class="content">
+                                    <p class="title-foto">Your Kindness</p>
+                                    <p class="subtitle-foto">The way you treat people and the way you care for me is unmatched.</p>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="tile is-parent">
+                            <article class="tile is-child notification foto2" data-aos="fade-up">
+                                <div class="content">
+                                    <p class="title-foto">Your Laughter</p>
+                                    <p class="subtitle-foto">It's my favorite sound in the world and I want to hear it forever.</p>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="tile is-parent">
+                            <article class="tile is-child notification foto3" data-aos="fade-up">
+                                <div class="content">
+                                    <p class="title-foto">Your Support</p>
+                                    <p class="subtitle-foto">You make me want to be a better version of myself every single day.</p>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <section class="section-dark regular-section" id="small-things">
-            <div class="container">
-                <div class="column is-12 has-text-centered" data-aos="fade-up">
-                    <h1 class="title section-title" style="color: white;">It's the Little Things</h1>
-                </div>
-                <div class="columns is-multiline" data-aos="fade-up">
-                    <div class="column is-6"><div class="notification is-light"><strong>Your Smile:</strong> The way your whole face lights up.</div></div>
-                    <div class="column is-6"><div class="notification is-light"><strong>Our Conversations:</strong> Talk about absolutely nothing for hours.</div></div>
-                    <div class="column is-6"><div class="notification is-light"><strong>Your Ambition:</strong> Watching how hard you work.</div></div>
-                    <div class="column is-6"><div class="notification is-light"><strong>Your Humor:</strong> The weird jokes only we find funny.</div></div>
-                </div>
-            </div>
-        </section>
+        <section class="section-dark regular-section" id="small-things">
+            <div class="container">
+                <div class="column is-12 has-text-centered" data-aos="fade-up">
+                    <h1 class="title section-title" style="color: white;">It's the Little Things</h1>
+                </div>
+                <div class="columns is-multiline" data-aos="fade-up">
+                    <div class="column is-6"><div class="notification is-light"><strong>Your Smile:</strong> The way your whole face lights up.</div></div>
+                    <div class="column is-6"><div class="notification is-light"><strong>Our Conversations:</strong> Talk about absolutely nothing for hours.</div></div>
+                    <div class="column is-6"><div class="notification is-light"><strong>Your Ambition:</strong> Watching how hard you work.</div></div>
+                    <div class="column is-6"><div class="notification is-light"><strong>Your Humor:</strong> The weird jokes only we find funny.</div></div>
+                </div>
+            </div>
+        </section>
 
-        <section class="section-light regular-section" id="the-signs">
-            <div class="container">
-                <div class="column is-12 has-text-centered" data-aos="fade-up">
-                    <h1 class="title section-title">I Saw The Signs...</h1>
-                    <p class="subtitle">You thought you were being subtle, but I was paying attention.</p>
-                </div>
-                <div class="columns is-multiline is-centered" data-aos="fade-up">
-                    <div class="column is-4">
-                        <div class="card" style="border: 10px solid white; transform: rotate(-2deg);">
-                            <div class="card-image"><figure class="image"><img src="image/hint1.jpg" alt="Hint 1"></figure></div>
-                            <div class="card-content has-text-centered"><p class="is-italic">"Exhibit A: This text right here."</p></div>
-                        </div>
-                    </div>
-                    <div class="column is-4">
-                        <div class="card" style="border: 10px solid white; transform: rotate(3deg);">
-                            <div class="card-image"><figure class="image"><img src="image/hint2.jpg" alt="Hint 2"></figure></div>
-                            <div class="card-content has-text-centered"><p class="is-italic">"Exhibit B: I knew what you meant."</p></div>
-                        </div>
-                    </div>
-                    <div class="column is-4">
-                        <div class="card" style="border: 10px solid white; transform: rotate(-1deg);">
-                            <div class="card-image"><figure class="image"><img src="image/hint3.jpg" alt="Hint 3"></figure></div>
-                            <div class="card-content has-text-centered"><p class="is-italic">"Exhibit C: Caught you in 4k."</p></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <section class="section-light regular-section" id="the-signs">
+            <div class="container">
+                <div class="column is-12 has-text-centered" data-aos="fade-up">
+                    <h1 class="title section-title">I Saw The Signs...</h1>
+                    <p class="subtitle">You thought you were being subtle, but I was paying attention.</p>
+                </div>
+                <div class="columns is-multiline is-centered" data-aos="fade-up">
+                    <div class="column is-4">
+                        <div class="card" style="border: 10px solid white; transform: rotate(-2deg);">
+                            <div class="card-image"><figure class="image"><img src="image/hint1.jpg" alt="Hint 1"></figure></div>
+                            <div class="card-content has-text-centered"><p class="is-italic">"Exhibit A: This text right here."</p></div>
+                        </div>
+                    </div>
+                    <div class="column is-4">
+                        <div class="card" style="border: 10px solid white; transform: rotate(3deg);">
+                            <div class="card-image"><figure class="image"><img src="image/hint2.jpg" alt="Hint 2"></figure></div>
+                            <div class="card-content has-text-centered"><p class="is-italic">"Exhibit B: I knew what you meant."</p></div>
+                        </div>
+                    </div>
+                    <div class="column is-4">
+                        <div class="card" style="border: 10px solid white; transform: rotate(-1deg);">
+                            <div class="card-image"><figure class="image"><img src="image/hint3.jpg" alt="Hint 3"></figure></div>
+                            <div class="card-content has-text-centered"><p class="is-italic">"Exhibit C: Caught you in 4k."</p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <section class="section-light regular-section" id="bucket-list">
-            <div class="container">
-                <div class="column is-12 has-text-centered" data-aos="fade-up">
-                    <h1 class="title section-title">Things I Want To Do With You</h1>
-                </div>
-                <div class="columns is-centered">
-                    <div class="column is-8">
-                        <div class="content" data-aos="fade-up">
-                            <ul style="list-style-type: none; text-align: left;">
-                                <li style="margin-bottom: 15px;"><input type="checkbox" disabled checked> <span style="text-decoration: line-through; margin-left: 10px;">Meet a girl who makes everything better (Done!)</span></li>
-                                <li style="margin-bottom: 15px;"><input type="checkbox" disabled> <span style="margin-left: 10px;">Go on a late-night drive to nowhere.</span></li>
-                                <li style="margin-bottom: 15px;"><input type="checkbox" disabled> <span style="margin-left: 10px;">Take a cooking class together.</span></li>
-                                <li style="margin-bottom: 15px;"><input type="checkbox" disabled> <span style="margin-left: 10px;">Travel to a city we've never been to.</span></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <section class="section-light regular-section" id="bucket-list">
+            <div class="container">
+                <div class="column is-12 has-text-centered" data-aos="fade-up">
+                    <h1 class="title section-title">Things I Want To Do With You</h1>
+                </div>
+                <div class="columns is-centered">
+                    <div class="column is-8">
+                        <div class="content" data-aos="fade-up">
+                            <ul style="list-style-type: none; text-align: left;">
+                                <li style="margin-bottom: 15px;"><input type="checkbox" disabled checked> <span style="text-decoration: line-through; margin-left: 10px;">Meet a girl who makes everything better (Done!)</span></li>
+                                <li style="margin-bottom: 15px;"><input type="checkbox" disabled> <span style="margin-left: 10px;">Go on a late-night drive to nowhere.</span></li>
+                                <li style="margin-bottom: 15px;"><input type="checkbox" disabled> <span style="margin-left: 10px;">Take a cooking class together.</span></li>
+                                <li style="margin-bottom: 15px;"><input type="checkbox" disabled> <span style="margin-left: 10px;">Travel to a city we've never been to.</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <section class="section-light regular-section" id="the-letter">
-            <div class="container">
-                <div class="columns is-centered">
-                    <div class="column is-8" data-aos="fade-up">
-                        <div style="background: #fff; padding: 60px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-left: 5px solid #BC8887;">
-                            <h1 class="title" style="font-family: 'Georgia', serif; color: #333;">To Pookie,</h1>
-                            <div class="content" style="font-family: 'Georgia', serif; font-size: 1.1rem; line-height: 2; color: #555;">
-                                <p>I wanted to take a second away from the photos and the jokes to tell you something real. It’s rare to find someone who just "gets it" the way you do.</p>
-                                <p>I’m asking because I genuinely can’t imagine my days without you in them. I want to be the person who supports you and laughs with you through it all.</p>
-                                <p style="margin-top: 40px;">Always,<br><strong>Shamoye</strong></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <section class="section-light regular-section" id="the-letter">
+            <div class="container">
+                <div class="columns is-centered">
+                    <div class="column is-8" data-aos="fade-up">
+                        <div style="background: #fff; padding: 60px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-left: 5px solid #BC8887;">
+                            <h1 class="title" style="font-family: 'Georgia', serif; color: #333;">To Pookie,</h1>
+                            <div class="content" style="font-family: 'Georgia', serif; font-size: 1.1rem; line-height: 2; color: #555;">
+                                <p>I wanted to take a second away from the photos and the jokes to tell you something real. It’s rare to find someone who just "gets it" the way you do.</p>
+                                <p>I’m asking because I genuinely can’t imagine my days without you in them. I want to be the person who supports you and laughs with you through it all.</p>
+                                <p style="margin-top: 40px;">Always,<br><strong>Shamoye</strong></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <section class="section-dark contact" id="rsvp">
-            <div class="container">
-                <div class="column is-12 has-text-centered" data-aos="zoom-in">
-                    <h1 class="title section-title">One Final Question...</h1>
-                    <p class="subtitle" style="color: white; font-size: 1.5rem;">will you make me the luckiest person and be my girlfriend?</p>
-                    <br>
-                    <a href="https://wa.me/YOURNUMBER?text=YES!%20I%20will%20be%20your%20girlfriend!%20❤️" class="button btn-whatsapp" target="_blank">
-                        <i class="fas fa-heart"></i> YES, I WILL!
-                    </a>
-                </div>
-            </div>
-        </section>
-    </div>
+        <section class="section-dark contact" id="rsvp">
+            <div class="container">
+                <div class="column is-12 has-text-centered" data-aos="zoom-in">
+                    <h1 class="title section-title">One Final Question...</h1>
+                    <p class="subtitle" style="color: white; font-size: 1.5rem;">will you make me the luckiest person and be my girlfriend?</p>
+                    <br>
+                    <a href="https://wa.me/YOURNUMBER?text=YES!%20I%20will%20be%20your%20girlfriend!%20❤️" class="button btn-whatsapp" target="_blank">
+                        <i class="fas fa-heart"></i> YES, I WILL!
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
 
-    <div class="footer">
-        <div class="container has-text-centered">
-            <p>2026 © Created with love for My Pookie</p>
-        </div>
-    </div>
+    <div class="footer">
+        <div class="container has-text-centered">
+            <p>2026 © Created with love for My Pookie</p>
+        </div>
+    </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="js/menikah.js"></script>
-    <link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
-    <script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
-    
-    <script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="js/menikah.js"></script>
-    <script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/menikah.js"></script>
+    <link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
+    <script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
+    
+    <script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/menikah.js"></script>
+    <script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
+    
 <script>
-        // 1. ANIMATION & AUDIO UNLOCK
-        AOS.init({ easing: "ease-out", duration: 800 });
+        // 1. ANIMATION & AUDIO UNLOCK
+        AOS.init({ easing: "ease-out", duration: 800 });
 
-        const music = document.getElementById("bgMusic");
-        
-        // This function handles the browser's requirement for a user gesture
-        function startAudio() {
-            music.play().then(() => {
-                console.log("Music started!");
-                // Remove listeners once it successfully plays
-                window.removeEventListener('click', startAudio);
-                window.removeEventListener('touchstart', startAudio);
-            }).catch(e => {
-                console.log("Playback still blocked", e);
-            });
-        }
+        const music = document.getElementById("bgMusic");
+        
+        // This function handles the browser's requirement for a user gesture
+        function startAudio() {
+            music.play().then(() => {
+                console.log("Music started!");
+                // Remove listeners once it successfully plays
+                window.removeEventListener('click', startAudio);
+                window.removeEventListener('touchstart', startAudio);
+            }).catch(e => {
+                console.log("Playback still blocked", e);
+            });
+        }
 
-        // Listen for any click or touch on the window to trigger the music
-        window.addEventListener('click', startAudio);
-        window.addEventListener('touchstart', startAudio);
+        // Listen for any click or touch on the window to trigger the music
+        window.addEventListener('click', startAudio);
+        window.addEventListener('touchstart', startAudio);
 
-        // 2. PRELOADER HIDE
-        $(window).on('load', function() {
-            $('.preloader-wrapper').fadeOut('fast');
-        });
+        // 2. PRELOADER HIDE
+        $(window).on('load', function() {
+            $('.preloader-wrapper').fadeOut('fast');
+        });
 
-        // 3. STOPWATCH TIMER
-        function updateTogetherTimer() {
-            const startDate = new Date(2025, 10, 11, 0, 0, 0); 
-            const now = new Date();
-            const diff = now - startDate;
-            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-            const minutes = Math.floor((diff / (1000 * 60)) % 60);
-            const seconds = Math.floor((diff / 1000) % 60);
-            
-            document.getElementById("t-days").innerText = days.toString().padStart(2, '0');
-            document.getElementById("t-hours").innerText = hours.toString().padStart(2, '0');
-            document.getElementById("t-minutes").innerText = minutes.toString().padStart(2, '0');
-            document.getElementById("t-seconds").innerText = seconds.toString().padStart(2, '0');
-        }
-        setInterval(updateTogetherTimer, 1000);
-        updateTogetherTimer();
+        // 3. STOPWATCH TIMER
+        function updateTogetherTimer() {
+            const startDate = new Date(2025, 10, 11, 0, 0, 0); 
+            const now = new Date();
+            const diff = now - startDate;
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+            const minutes = Math.floor((diff / (1000 * 60)) % 60);
+            const seconds = Math.floor((diff / 1000) % 60);
+            
+            document.getElementById("t-days").innerText = days.toString().padStart(2, '0');
+            document.getElementById("t-hours").innerText = hours.toString().padStart(2, '0');
+            document.getElementById("t-minutes").innerText = minutes.toString().padStart(2, '0');
+            document.getElementById("t-seconds").innerText = seconds.toString().padStart(2, '0');
+        }
+        setInterval(updateTogetherTimer, 1000);
+        updateTogetherTimer();
 
-        // 4. DUAL CLOCKS (New York & Accra)
-        function updateClocks() {
-            const now = new Date();
-            const options1 = { timeZone: 'America/New_York', hour: '2-digit', minute: '2-digit', second: '2-digit' };
-            const options2 = { timeZone: 'Africa/Accra', hour: '2-digit', minute: '2-digit', second: '2-digit' };
-            
-            document.getElementById("local-time-1").innerText = new Intl.DateTimeFormat('en-US', options1).format(now);
-            document.getElementById("local-time-2").innerText = new Intl.DateTimeFormat('en-US', options2).format(now);
-        }
-        setInterval(updateClocks, 1000);
-        updateClocks();
-    
-document.querySelectorAll('.card-image img').forEach(image => {
-    image.onclick = () => {
-        document.getElementById('lightbox').style.display = 'flex';
-        document.getElementById('lightbox-img').src = image.src;
-    };
-});
-    </script>
-    <div id="lightbox" class="lightbox" onclick="this.style.display='none'">
-    <img id="lightbox-img" src="">
-</div>
+        // 4. DUAL CLOCKS (New York & Accra)
+        function updateClocks() {
+            const now = new Date();
+            const options1 = { timeZone: 'America/New_York', hour: '2-digit', minute: '2-digit', second: '2-digit' };
+            const options2 = { timeZone: 'Africa/Accra', hour: '2-digit', minute: '2-digit', second: '2-digit' };
+            
+            document.getElementById("local-time-1").innerText = new Intl.DateTimeFormat('en-US', options1).format(now);
+            document.getElementById("local-time-2").innerText = new Intl.DateTimeFormat('en-US', options2).format(now);
+        }
+        setInterval(updateClocks, 1000);
+        updateClocks();
+
+    </script>
 </body>
 </body>
 </html>
