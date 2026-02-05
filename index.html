@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -431,8 +431,17 @@
         }
         setInterval(updateClocks, 1000);
         updateClocks();
-
+    
+document.querySelectorAll('.card-image img').forEach(image => {
+    image.onclick = () => {
+        document.getElementById('lightbox').style.display = 'flex';
+        document.getElementById('lightbox-img').src = image.src;
+    };
+});
     </script>
+    <div id="lightbox" class="lightbox" onclick="this.style.display='none'">
+    <img id="lightbox-img" src="">
+</div>
 </body>
 </body>
 </html>
