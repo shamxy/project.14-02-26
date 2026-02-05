@@ -652,3 +652,17 @@ body.preloader-site {
   text-align: center;
   padding: 10px;
 }
+
+html {
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+}
+
+section {
+    height: 100vh; /* Makes every section fill the screen */
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
