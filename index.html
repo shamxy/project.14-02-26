@@ -430,36 +430,25 @@
         AOS.init({ easing: "ease-out", duration: 800 });
 
         const mainBgMusic = document.getElementById("bgMusic");
-        let currentPlaylistAudio = null;
-        
-        function startAudio() {
-            mainBgMusic.play().then(() => {
-                window.removeEventListener('click', startAudio);
-                window.removeEventListener('touchstart', startAudio);
-            }).catch(e => console.log("Waiting for interaction..."));
-        }
+      let currentPlaylistAudio = null;
 
-        window.addEventListener('click', startAudio);
-        window.addEventListener('touchstart', startAudio);
+function playSong(audioUrl) {
+    // 1. Pause the main background music (Raindance)
+    if (mainBgMusic) {
+        mainBgMusic.pause();
+    }
 
-        // 2. PLAY SONG FUNCTION (Pauses Raindance)
-        function playSong(audioUrl) {
-            // Pause the main background music
-            if (mainBgMusic) {
-                mainBgMusic.pause();
-            }
+    // 2. If a playlist song is already playing, STOP it completely
+    if (currentPlaylistAudio) {
+        currentPlaylistAudio.pause();
+        currentPlaylistAudio.src = ""; // This "kills" the previous audio object
+        currentPlaylistAudio.load();
+    }
 
-            // Stop any playlist song already playing
-            if (currentPlaylistAudio) {
-                currentPlaylistAudio.pause();
-                currentPlaylistAudio.currentTime = 0;
-            }
-
-            // Play the new song
-            currentPlaylistAudio = new Audio(audioUrl);
-            currentPlaylistAudio.play();
-        }
-
+    // 3. Create and play the new song
+    currentPlaylistAudio = new Audio(audioUrl);
+    currentPlaylistAudio.play().catch(e => console.log("Playback error:", e));
+}
         // 3. PRELOADER HIDE
         $(window).on('load', function() {
             $('.preloader-wrapper').fadeOut('fast');
