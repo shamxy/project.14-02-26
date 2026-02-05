@@ -121,35 +121,55 @@
 </section>
         </section>
 
-        <section class="section-dark regular-section" id="distance-section">
-            <div class="container">
-                <div class="columns is-vcentered has-text-centered">
-                    <div class="column" data-aos="fade-right">
-                        <h2 class="subtitle" style="color: #FFB6C1; font-weight: 700;">Pookie</h2>
-                        <h1 class="title is-2" style="color: white; margin-bottom: 10px;">New York</h1>
-                        <p style="color: #FFFFFF; font-size: 2.2rem; font-weight: 800; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);" id="local-time-1">00:00:00 AM</p>
-                    </div>
-
-                    <div class="column is-4" data-aos="zoom-in">
-                        <div style="border-bottom: 3px dashed #BC8887; position: relative; height: 50px; margin-bottom: 25px;">
-                            <i class="fas fa-plane" style="color: #BC8887; position: absolute; left: 50%; transform: translateX(-50%); top: 32px; font-size: 2rem;"></i>
-                        </div>
-                        <p style="color: #BC8887; font-weight: 900; letter-spacing: 2px; font-size: 1.2rem;">5116.97 MILES APART</p>
-                    </div>
-
-                    <div class="column" data-aos="fade-left">
-                        <h2 class="subtitle" style="color: #FFB6C1; font-weight: 700;">Shamoye</h2>
-                        <h1 class="title is-2" style="color: white; margin-bottom: 10px;">Accra</h1>
-                        <p style="color: #FFFFFF; font-size: 2.2rem; font-weight: 800; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);" id="local-time-2">00:00:00 AM</p>
-                    </div>
+     <section class="section-dark regular-section" id="essentials">
+    <div class="container">
+        <div class="column has-text-centered is-12">
+            <h1 class="title section-title" data-aos="fade-up" style="color: white;">Five Essentials</h1>
+            
+            <div class="tile is-ancestor">
+                <div class="tile is-parent">
+                    <article class="tile is-child notification" style="background: #996E6D;" data-aos="fade-up">
+                        <p style="color: white; font-weight: 700; margin-bottom: 5px;">LOREM IPSUM</p>
+                        <p class="real-time-clock" style="color: white; font-family: monospace; font-size: 1.2rem;">00:00:00</p>
+                        <p style="color: white; margin-top: 10px;">Lorem ipsum dolor sit amet.</p>
+                    </article>
                 </div>
-                <div class="column is-12 has-text-centered" style="margin-top: 50px;" data-aos="fade-up">
-                    <p class="title is-4" style="font-style: italic; color: #FFFFFF; font-weight: 600;">
-                        "Distance is just a test to see how far love can travel."
-                    </p>
+                <div class="tile is-parent">
+                    <article class="tile is-child notification" style="background: #BC8887;" data-aos="fade-up">
+                        <p style="color: white; font-weight: 700; margin-bottom: 5px;">LOREM IPSUM</p>
+                        <p class="real-time-clock" style="color: white; font-family: monospace; font-size: 1.2rem;">00:00:00</p>
+                        <p style="color: white; margin-top: 10px;">Lorem ipsum dolor sit amet.</p>
+                    </article>
+                </div>
+                <div class="tile is-parent">
+                    <article class="tile is-child notification" style="background: #D8A9A8;" data-aos="fade-up">
+                        <p style="color: white; font-weight: 700; margin-bottom: 5px;">LOREM IPSUM</p>
+                        <p class="real-time-clock" style="color: white; font-family: monospace; font-size: 1.2rem;">00:00:00</p>
+                        <p style="color: white; margin-top: 10px;">Lorem ipsum dolor sit amet.</p>
+                    </article>
                 </div>
             </div>
-        </section>
+
+            <div class="tile is-ancestor">
+                <div class="tile is-parent is-6">
+                    <article class="tile is-child notification" style="background: #EDD2D1;" data-aos="fade-up">
+                        <p style="color: #996E6D; font-weight: 700; margin-bottom: 5px;">LOREM IPSUM</p>
+                        <p class="real-time-clock" style="color: #996E6D; font-family: monospace; font-size: 1.2rem;">00:00:00</p>
+                        <p style="color: #996E6D; margin-top: 10px;">Lorem ipsum dolor sit amet.</p>
+                    </article>
+                </div>
+                <div class="tile is-parent is-6">
+                    <article class="tile is-child notification" style="background: #F4E2E2;" data-aos="fade-up">
+                        <p style="color: #996E6D; font-weight: 700; margin-bottom: 5px;">LOREM IPSUM</p>
+                        <p class="real-time-clock" style="color: #996E6D; font-family: monospace; font-size: 1.2rem;">00:00:00</p>
+                        <p style="color: #996E6D; margin-top: 10px;">Lorem ipsum dolor sit amet.</p>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 
 
         
@@ -546,6 +566,21 @@
             $('#modal-img').attr('src', $(this).attr('src'));
             $('#image-modal').css('display', 'flex');
         });
+        <script>
+    function updateEssentialsClocks() {
+        const now = new Date();
+        // This formats it to "11:50:45 PM"
+        const timeString = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+        
+        const clocks = document.querySelectorAll('.real-time-clock');
+        clocks.forEach(clock => {
+            clock.innerText = timeString;
+        });
+    }
+
+    // Update every 1 second
+    setInterval(updateEssentialsClocks, 1000);
+    updateEssentialsClocks();
     </script>
     
     <div id="image-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:10001; justify-content:center; align-items:center; cursor:pointer;" onclick="this.style.display='none'">
