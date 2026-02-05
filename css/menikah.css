@@ -5,6 +5,26 @@
   justify-content: center;
 }
 
+  /* This makes the gallery photos zoom and glow */
+  .card-image img {
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+
+  .card-image img:hover {
+    transform: scale(1.08); /* Zooms in slightly */
+    box-shadow: 0 10px 20px rgba(188, 136, 135, 0.5); /* Adds a dusty pink glow */
+    cursor: pointer;
+  }
+
+  /* This makes the "Reasons" tiles tilt slightly when hovered */
+  .tile.is-child {
+    transition: transform 0.3s ease;
+  }
+
+  .tile.is-child:hover {
+    transform: translateY(-10px); /* Lifts the card up */
+  }
+</style>
 * {
   box-sizing: border-box;
 }
