@@ -12,6 +12,7 @@
     height: 100%;
     object-fit: cover; /* This prevents stretching */
     transition: transform 0.4s ease, box-shadow 0.4s ease;
+    border-radius: 20px;
 }
   .card-image img:hover {
     transform: scale(1.08); /* Zooms in slightly */
