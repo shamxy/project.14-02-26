@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Lato|Raleway|Rouge+Script");
+
 .has-vertically-aligned-content {
   display: flex;
   flex-direction: column;
@@ -22,32 +23,27 @@ html {
 .navbar-item {
   line-height: 38px;
   font-weight: 600;
-  text-transform: ;
   letter-spacing: 1px;
   font-size: 1rem;
-  box-shadow:  ;
 }
 
-.navbar-item.is-active{
+.navbar-item.is-active {
   border-bottom: 2px solid #996E6D;
 }
 
-.a.navbar-item{
-  font-color: #996E6D;
+a.navbar-item {
+  color: #996E6D;
 }
 
-
 .hero {
-  background-image: url(https://picsum.photos/id/25/1920/1080);
-  background: linear-gradient(rgba(153, 110, 109, 0.65), rgba(153, 110, 109, 0.65)), rgba(0, 0, 0, 0.55) url("https://picsum.photos/id/381/1920/1080") no-repeat;
+  background: linear-gradient(rgba(153, 110, 109, 0.65), rgba(153, 110, 109, 0.65)), 
+              rgba(0, 0, 0, 0.55) url("https://picsum.photos/id/381/1920/1080") no-repeat;
   background-attachment: fixed;
   background-size: cover;
   color: white;
   box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   font-family: 'Raleway', sans-serif;
 }
-
-
 
 .hero .title {
   font-family: 'Rouge Script', sans-serif;
@@ -67,7 +63,6 @@ html {
 .hero .tempatwaktu {
   padding-top: 35px;
   font-size: 1.3rem;
-  
 }
 
 .hero .hero-foot {
@@ -90,7 +85,6 @@ html {
 .hero .hero-foot .hero-foot--wrapper .hero-menu-desktop {
   line-height: 38px;
   font-weight: 600;
-  text-transform: ;
   letter-spacing: 1px;
   font-size: 1rem;
 }
@@ -115,12 +109,11 @@ html {
   border-bottom: 2px solid #c28285;
 }
 
-
-.space40px{
+.space40px {
   height: 40px;
 }
 
-.space24px{
+.space24px {
   height: 24px;
 }
 
@@ -143,7 +136,6 @@ html {
 .main-content .section-dark.resume {
   height: 400px;
   padding-top: 60px;
-
 }
 
 @media (max-width: 599px) {
@@ -187,7 +179,6 @@ html {
 
 .main-content .section-dark.foto-foto .foto-item {
   margin-bottom: 1rem;
-  -webkit-transition: all .1s ease-in-out;
   transition: all .1s ease-in-out;
   border-radius: 5px;
   background-size: cover;
@@ -196,14 +187,12 @@ html {
 }
 
 .main-content .section-dark.my-work .work-item:hover {
-  -webkit-transform: scale(1.055) translateY(-2px);
   transform: scale(1.055) translateY(-2px);
-  -webkit-box-shadow: 0 2px 25px 0 rgba(30, 30, 30, 0.1);
   box-shadow: 0 2px 25px 0 rgba(30, 30, 30, 0.1);
 }
 
 .section-map {
-  padding: 0 0 0 0 ;
+  padding: 0;
 }
 
 .main-content .section-light {
@@ -243,7 +232,6 @@ html {
 @media (max-width: 599px) {
   .main-content .section-light.skills {
     padding: 50px 20px 40px 20px;
-    padding-bottom: 20px;
   }
 }
 
@@ -307,12 +295,12 @@ html {
 }
 
 .ampersand {
-font-size: 5rem;
-font-family: 'Rouge Script', sans-serif;
-color: #996E6D;
-line-height: 5rem;
-display: inline-block;
-vertical-align: middle;
+  font-size: 5rem;
+  font-family: 'Rouge Script', sans-serif;
+  color: #996E6D;
+  line-height: 5rem;
+  display: inline-block;
+  vertical-align: middle;
 }
 
 .bodytext {
@@ -334,24 +322,21 @@ vertical-align: middle;
 .tempat {
   font-size: 1.4rem;
   font-family: 'Raleway', sans-serif;
-  font-size: ;
   margin-bottom: 50px;
 }
-
 
 .has-vertically-align {
   vertical-align: middle;
 }
 
 .footer {
-  bottom: 0;
   width: 100vw;
-  padding: 10px 10px 10px 10px;
+  padding: 10px;
   line-height: 25px;
   text-align: center;
   vertical-align: middle;
   background: #c28285;
-  color: whitesmoke;    
+  color: whitesmoke; 
 }
 
 .footer p {
@@ -362,13 +347,12 @@ vertical-align: middle;
   vertical-align: middle;
 }
 
-
 .main-content .no-padding-top {
   padding-top: 0px;
 }
 
-.footer img{
-  margin: 10px 0px 10px 10px;
+.footer img {
+  margin: 10px 0 10px 10px;
   display: inline-block;
   max-height: 24px;
   vertical-align: middle;
@@ -429,7 +413,6 @@ vertical-align: middle;
 
 ::-webkit-scrollbar-thumb {
   box-shadow: inset 0 0 6px #996E6D;
-  -webkit-box-shadow: inset 0 0 6px #996E6D;
   background-color: #BC8887;
 }
 
@@ -451,11 +434,9 @@ body.preloader-site {
   position: absolute;
   top: 50%;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   width: 120px;
 }
-
 
 .btn-whatsapp:hover {
   color: white;
@@ -463,37 +444,31 @@ body.preloader-site {
   font-size: 1.2rem;
   border-radius: 10px;
   border: 2px solid #59a543;
-  width:  210px;
+  width: 210px;
   height: 65px;
   align-items: center;
   margin: 1rem;
 }
 
-
 .btn-whatsapp {
   background-color: #6cc751;
-  width:  210px;
+  width: 210px;
   height: 65px;
   color: white;
   font-size: 1.2rem;
   border-radius: 10px;  
-  border-left: 1px solid #6cc751;
-  border-right: 1px solid #6cc751;
-  border-top: 1px solid #6cc751;
-  border-bottom: 1px solid #6cc751;
+  border: 1px solid #6cc751;
   align-items: center;
   margin: 1rem;
-
 }
 
-
 .btn-cta:hover {
-  color:white;
+  color: white;
   background-color: #bf7877;
   font-size: 1.2rem;
   border-radius: 10px;
   border: 2px solid #bf7877;
-  width:  210px;
+  width: 210px;
   height: 65px;
   align-items: center;
   margin: 1rem;
@@ -501,7 +476,7 @@ body.preloader-site {
 
 .btn-cta {
   background-color: #996E6D;
-  width:  210px;
+  width: 210px;
   height: 65px;
   color: white;
   font-size: 1.2rem;
@@ -521,14 +496,13 @@ body.preloader-site {
   height: 55px;
   align-items: center;
   margin: 0.1rem;
-
 }
 
 .voucher-code {
   height: 55px;
   max-width: 180px;
   border: 2px solid #26ade4;
-  border-radius: 10px 0 0 10px  ;
+  border-radius: 10px 0 0 10px;
   font-size: 24px;
   padding: 15px;
 }
@@ -549,72 +523,41 @@ body.preloader-site {
 .fa-copy {
   margin-right: 5px;
 }
-.white
-{color:ghostwhite}
 
+.white {
+  color: ghostwhite;
+}
 
-.dusty-pink {color: #D8A9A8}
-.dusty-pink-lighter {color: #EDD2D1}
-.dusty-pink-lightest {color: #F4E2E2}
-.dusty-pink-darker {color: #BC8887}
-.dusty-pink-darkest {color: #996E6D}
+.dusty-pink { color: #D8A9A8 }
+.dusty-pink-lighter { color: #EDD2D1 }
+.dusty-pink-lightest { color: #F4E2E2 }
+.dusty-pink-darker { color: #BC8887 }
+.dusty-pink-darkest { color: #996E6D }
 
 .tile {
   border-radius: 10px;
 }
 
+.foto1 { background-image: linear-gradient(rgba(95, 2, 2, 0.5), rgba(48, 47, 47, 0.9)), url("../image/beatriz-perez-moya-M2T1j-6Fn8w-unsplash.jpg"); }
+.foto2 { background-image: linear-gradient(rgba(95, 2, 2, 0.5), rgba(48, 47, 47, 0.9)), url("../image/evelina-friman-hw_sKmjb0ns-unsplash.jpg"); }
+.foto3 { background-image: linear-gradient(rgba(95, 2, 2, 0.5), rgba(48, 47, 47, 0.9)), url("../image/jeremy-wong-weddings-464ps_nOflw-unsplash.jpg"); }
+.foto4 { background-image: linear-gradient(rgba(95, 2, 2, 0.5), rgba(48, 47, 47, 0.9)), url("../image/jeremy-wong-weddings-K8KiCHh4WU4-unsplash.jpg"); }
+.foto5 { background-image: linear-gradient(rgba(95, 2, 2, 0.5), rgba(48, 47, 47, 0.9)), url("../image/nathan-dumlao-5BB_atDT4oA-unsplash.jpg"); }
+.foto6 { background-image: linear-gradient(rgba(95, 2, 2, 0.5), rgba(48, 47, 47, 0.9)), url("../image/samantha-gades-x40Q9jrEVT0-unsplash.jpg"); }
 
-.foto1 {
-  background-image: linear-gradient(rgba(95, 2, 2, 0.5), rgba(48, 47, 47, 0.9)), url("../image/beatriz-perez-moya-M2T1j-6Fn8w-unsplash.jpg");
+.foto1, .foto2, .foto3, .foto4, .foto5, .foto6 {
   background-size: cover;
   background-position: center;
-  background-repeat:no-repeat;
+  background-repeat: no-repeat;
   min-height: 24rem;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  cursor: pointer;
 }
 
-
-.foto2 {
-  background-image: linear-gradient(rgba(95, 2, 2, 0.5), rgba(48, 47, 47, 0.9)), url("../image/evelina-friman-hw_sKmjb0ns-unsplash.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat:no-repeat;
-  min-height: 24rem;
+.tile.is-parent:hover article {
+  transform: scale(1.02);
+  filter: brightness(1.1);
 }
-
-.foto3 {
-  background-image: linear-gradient(rgba(95, 2, 2, 0.5), rgba(48, 47, 47, 0.9)), url("../image/jeremy-wong-weddings-464ps_nOflw-unsplash.jpg");
-  background-size: cover;
-  background-position: top;
-  background-repeat:no-repeat;
-  min-height: 24rem;
-}
-
-.foto4 {
-  background-image: linear-gradient(rgba(95, 2, 2, 0.5), rgba(48, 47, 47, 0.9)), url("../image/jeremy-wong-weddings-K8KiCHh4WU4-unsplash.jpg");
-  background-size: cover;
-  background-position: top;
-  background-repeat:no-repeat;
-  min-height: 24rem;
-}
-
-.foto5 {
-  background-image: linear-gradient(rgba(95, 2, 2, 0.5), rgba(48, 47, 47, 0.9)), url("../image/nathan-dumlao-5BB_atDT4oA-unsplash.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat:no-repeat;
-  min-height: 24rem;
-}
-
-
-.foto6 {
-  background-image: linear-gradient(rgba(95, 2, 2, 0.5), rgba(48, 47, 47, 0.9)), url("../image/samantha-gades-x40Q9jrEVT0-unsplash.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat:no-repeat;
-  min-height: 24rem;
-}
-
-
 
 .title-foto {
   font-size: 18pt;
@@ -624,12 +567,10 @@ body.preloader-site {
   color: white;
 }
 
-
 .subtitle-foto {
   font-family: 'Lato', sans-serif;
   font-weight: 700;
   font-size: 14pt;
-  font-weight: 600;
   margin-top: 15px;
   text-align: left;
   color: white;
@@ -654,10 +595,63 @@ body.preloader-site {
 }
 
 .card-image figure.image img {
-    height: 350px; /* You can adjust this height to your liking */
-    width: 100%;
-    object-fit: cover; /* This is the "magic" that crops without stretching */
-    object-position: center; /* Keeps the focus in the middle of the photo */
-    border-radius: 8px; /* Optional: rounds the corners slightly */
+  height: 350px;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 8px;
 }
 
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  justify-content: center;
+  align-items: center;
+  cursor: zoom-out;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 85vh;
+  border: 3px solid white;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  object-fit: contain;
+  border-radius: 4px;
+}
+
+#hitungmundur {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  list-style: none;
+  padding: 0;
+}
+
+#hitungmundur li {
+  text-align: center;
+  min-width: 80px;
+}
+
+#hitungmundur span {
+  font-size: 3rem;
+  font-weight: 900;
+  color: #996E6D;
+  display: block;
+  line-height: 1;
+}
+
+#hitungmundur p {
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  margin-top: 5px;
+  color: #4a4a4a;
+}
