@@ -426,33 +426,46 @@
     <script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
     
     <script>
-        // 1. ANIMATION & AUDIO UNLOCK
-        AOS.init({ easing: "ease-out", duration: 800 });
+     // 1. ANIMATION & GLOBALS
+AOS.init({ easing: "ease-out", duration: 800 });
 
-        const mainBgMusic = document.getElementById("bgMusic");
-      let currentPlaylistAudio = null;
+const mainBgMusic = document.getElementById("bgMusic");
+let currentPlaylistAudio = null;
 
+// 2. MAIN AUDIO UNLOCK (Starts Raindance on first click)
+function unlockAudio() {
+    if (mainBgMusic) {
+        mainBgMusic.play().catch(e => console.log("Audio waiting for interaction"));
+        window.removeEventListener('click', unlockAudio);
+        window.removeEventListener('touchstart', unlockAudio);
+    }
+}
+window.addEventListener('click', unlockAudio);
+window.addEventListener('touchstart', unlockAudio);
+
+// 3. PLAYLIST FUNCTION (Stops Raindance and previous songs)
 function playSong(audioUrl) {
-    // 1. Pause the main background music (Raindance)
+    // Stop the background track
     if (mainBgMusic) {
         mainBgMusic.pause();
     }
 
-    // 2. If a playlist song is already playing, STOP it completely
+    // Stop any playlist song that is currently playing
     if (currentPlaylistAudio) {
         currentPlaylistAudio.pause();
-        currentPlaylistAudio.src = ""; // This "kills" the previous audio object
+        currentPlaylistAudio.src = ""; 
         currentPlaylistAudio.load();
     }
 
-    // 3. Create and play the new song
+    // Play the new selection
     currentPlaylistAudio = new Audio(audioUrl);
     currentPlaylistAudio.play().catch(e => console.log("Playback error:", e));
 }
-        // 3. PRELOADER HIDE
-        $(window).on('load', function() {
-            $('.preloader-wrapper').fadeOut('fast');
-        });
+
+// 4. PRELOADER HIDE
+$(window).on('load', function() {
+    $('.preloader-wrapper').fadeOut('fast');
+});
 
         // 4. STOPWATCH TIMER
         function updateTogetherTimer() {
