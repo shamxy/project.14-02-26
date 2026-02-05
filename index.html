@@ -358,27 +358,27 @@
             <div class="column is-6">
                 <div class="notification is-white" style="box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
                    <ul style="list-style: none; padding: 0; text-align: center;">
-   <li onclick="playSong('https://files.catbox.moe/6crwb7.mp3')" 
-    style="padding: 10px 0; border-bottom: 1px solid #eee; cursor: pointer;">
-    <i class="fas fa-play-circle" style="color: #BC8887; margin-right: 10px;"></i>
-    <strong>WE FELL IN LOVE IN OCTOBER</strong> - Girl In Red 
-
-<li onclick="playSong('https://files.catbox.moe/lo9136.mp3')" 
-    style="padding: 10px 0; border-bottom: 1px solid #eee; cursor: pointer;">
-    <i class="fas fa-play-circle" style="color: #BC8887; margin-right: 10px;"></i>
-    <strong>GEN Z LUV</strong> - Central Cee  
-</li>
-                       <li onclick="playSong('https://files.catbox.moe/y65gcn.mp3')" 
-    style="padding: 10px 0; border-bottom: 1px solid #eee; cursor: pointer;">
-    <i class="fas fa-play-circle" style="color: #BC8887; margin-right: 10px;"></i>
-    <strong>RAINDANCE</strong> - Dave ft Tems
-</li>
-                       <li onclick="playSong('https://files.catbox.moe/ysz4m5.mp3')" 
-    style="padding: 10px 0; border-bottom: 1px solid #eee; cursor: pointer;">
-    <i class="fas fa-play-circle" style="color: #BC8887; margin-right: 10px;"></i>
-    <strong>Balenciaga</strong> - O'Kenneth 
-</li>
-                       </ul>
+    <li onclick="playSong('https://files.catbox.moe/6crwb7.mp3', 'We Fell In Love In October')" 
+        style="padding: 10px 0; border-bottom: 1px solid #eee; cursor: pointer;">
+        <i class="fas fa-play-circle" style="color: #BC8887; margin-right: 10px;"></i>
+        <strong>WE FELL IN LOVE IN OCTOBER</strong> - Girl In Red 
+    </li>
+    <li onclick="playSong('https://files.catbox.moe/lo9136.mp3', 'Gen Z Luv')" 
+        style="padding: 10px 0; border-bottom: 1px solid #eee; cursor: pointer;">
+        <i class="fas fa-play-circle" style="color: #BC8887; margin-right: 10px;"></i>
+        <strong>GEN Z LUV</strong> - Central Cee 
+    </li>
+    <li onclick="playSong('https://files.catbox.moe/y65gcn.mp3', 'Raindance')" 
+        style="padding: 10px 0; border-bottom: 1px solid #eee; cursor: pointer;">
+        <i class="fas fa-play-circle" style="color: #BC8887; margin-right: 10px;"></i>
+        <strong>RAINDANCE</strong> - Dave ft Tems
+    </li>
+    <li onclick="playSong('https://files.catbox.moe/ysz4m5.mp3', 'Balenciaga')" 
+        style="padding: 10px 0; border-bottom: 1px solid #eee; cursor: pointer;">
+        <i class="fas fa-play-circle" style="color: #BC8887; margin-right: 10px;"></i>
+        <strong>Balenciaga</strong> - O'Kenneth 
+    </li>
+</ul>
                 </div>
             </div>
         </div>
@@ -403,109 +403,89 @@
             <p>2026 © Created with love for My Pookie</p>
         </div>
     </div>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+<div id="now-playing-bar" style="display:none; position:fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: white; padding: 10px 25px; border-radius: 50px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); z-index: 9999; border: 2px solid #BC8887; min-width: 250px; text-align: center;">
+    <p style="margin: 0; font-size: 0.9rem; color: #BC8887; font-weight: bold;">
+        <i class="fas fa-compact-disc fa-spin" style="margin-right: 10px;"></i> 
+        NOW PLAYING: <span id="track-name" style="color: #333;">Song Title</span>
+    </p> 
+    
+</div>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="js/menikah.js"></script>
     <link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
     <script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
     
     <script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="js/menikah.js"></script>
-    <script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
-    
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="js/menikah.js"></script>
-    <link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
-    <script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
-    
-    <script>
-     // 1. ANIMATION & GLOBALS
-AOS.init({ easing: "ease-out", duration: 800 });
+        // 1. INITIALIZE ANIMATIONS & GLOBALS
+        AOS.init({ easing: "ease-out", duration: 800 });
+        const mainBgMusic = document.getElementById("bgMusic");
+        let currentPlaylistAudio = null;
 
-const mainBgMusic = document.getElementById("bgMusic");
-let currentPlaylistAudio = null;
+        // 2. MAIN AUDIO UNLOCK (Starts Raindance on first click)
+        function unlockAudio() {
+            if (mainBgMusic) {
+                mainBgMusic.play().catch(e => console.log("Waiting for interaction..."));
+                window.removeEventListener('click', unlockAudio);
+                window.removeEventListener('touchstart', unlockAudio);
+            }
+        }
+        window.addEventListener('click', unlockAudio);
+        window.addEventListener('touchstart', unlockAudio);
 
-// 2. MAIN AUDIO UNLOCK (Starts Raindance on first click)
-function unlockAudio() {
-    if (mainBgMusic) {
-        mainBgMusic.play().catch(e => console.log("Audio waiting for interaction"));
-        window.removeEventListener('click', unlockAudio);
-        window.removeEventListener('touchstart', unlockAudio);
-    }
-}
-window.addEventListener('click', unlockAudio);
-window.addEventListener('touchstart', unlockAudio);
+        // 3. PLAYLIST LOGIC (Stops Raindance and updates Now Playing Bar)
+        function playSong(audioUrl, songTitle) {
+            if (mainBgMusic) mainBgMusic.pause();
+            
+            if (currentPlaylistAudio) {
+                currentPlaylistAudio.pause();
+                currentPlaylistAudio.src = "";
+                currentPlaylistAudio.load();
+            }
 
-// 3. PLAYLIST FUNCTION (Stops Raindance and previous songs)
-function playSong(audioUrl) {
-    // Stop the background track
-    if (mainBgMusic) {
-        mainBgMusic.pause();
-    }
+            const bar = document.getElementById('now-playing-bar');
+            const trackName = document.getElementById('track-name');
+            trackName.innerText = songTitle;
+            bar.style.display = 'block';
 
-    // Stop any playlist song that is currently playing
-    if (currentPlaylistAudio) {
-        currentPlaylistAudio.pause();
-        currentPlaylistAudio.src = ""; 
-        currentPlaylistAudio.load();
-    }
+            currentPlaylistAudio = new Audio(audioUrl);
+            currentPlaylistAudio.play().catch(e => console.log("Error:", e));
+        }
 
-    // Play the new selection
-    currentPlaylistAudio = new Audio(audioUrl);
-    currentPlaylistAudio.play().catch(e => console.log("Playback error:", e));
-}
-
-// 4. PRELOADER HIDE
-$(window).on('load', function() {
-    $('.preloader-wrapper').fadeOut('fast');
-});
-
-        // 4. STOPWATCH TIMER
+        // 4. TIMERS & CLOCKS
         function updateTogetherTimer() {
-            const startDate = new Date(2025, 10, 11, 0, 0, 0); 
+            const startDate = new Date(2025, 10, 11); 
             const now = new Date();
             const diff = now - startDate;
-            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-            const minutes = Math.floor((diff / (1000 * 60)) % 60);
-            const seconds = Math.floor((diff / 1000) % 60);
-            
-            document.getElementById("t-days").innerText = days.toString().padStart(2, '0');
-            document.getElementById("t-hours").innerText = hours.toString().padStart(2, '0');
-            document.getElementById("t-minutes").innerText = minutes.toString().padStart(2, '0');
-            document.getElementById("t-seconds").innerText = seconds.toString().padStart(2, '0');
+            document.getElementById("t-days").innerText = Math.floor(diff / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
+            document.getElementById("t-hours").innerText = Math.floor((diff / (1000 * 60 * 60)) % 24).toString().padStart(2, '0');
+            document.getElementById("t-minutes").innerText = Math.floor((diff / (1000 * 60)) % 60).toString().padStart(2, '0');
+            document.getElementById("t-seconds").innerText = Math.floor((diff / 1000) % 60).toString().padStart(2, '0');
         }
-        setInterval(updateTogetherTimer, 1000);
-        updateTogetherTimer();
-
-        // 5. DUAL CLOCKS
+        
         function updateClocks() {
             const now = new Date();
             const options1 = { timeZone: 'America/New_York', hour: '2-digit', minute: '2-digit', second: '2-digit' };
             const options2 = { timeZone: 'Africa/Accra', hour: '2-digit', minute: '2-digit', second: '2-digit' };
-            
             document.getElementById("local-time-1").innerText = new Intl.DateTimeFormat('en-US', options1).format(now);
             document.getElementById("local-time-2").innerText = new Intl.DateTimeFormat('en-US', options2).format(now);
         }
+
+        setInterval(updateTogetherTimer, 1000);
         setInterval(updateClocks, 1000);
+        updateTogetherTimer();
         updateClocks();
 
-        // 6. IMAGE MODAL
+        // 5. UI ELEMENTS (Preloader & Modals)
+        $(window).on('load', function() { $('.preloader-wrapper').fadeOut('fast'); });
         $('.card-image img').on('click', function() {
             $('#modal-img').attr('src', $(this).attr('src'));
             $('#image-modal').css('display', 'flex');
         });
     </script>
     
-    <div id="image-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:1000; justify-content:center; align-items:center; cursor:pointer;" onclick="this.style.display='none'">
+    <div id="image-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:10001; justify-content:center; align-items:center; cursor:pointer;" onclick="this.style.display='none'">
         <img id="modal-img" src="" style="max-width:90%; max-height:90%; border: 3px solid white; border-radius: 5px;">
     </div>
-</body>
-</html>
-    <div id="image-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:1000; justify-content:center; align-items:center; cursor:pointer;" onclick="this.style.display='none'">
-    <img id="modal-img" src="" style="max-width:90%; max-height:90%; border: 3px solid white; border-radius: 5px;">
-</div>
-    
 </body>
 </html>
