@@ -889,6 +889,8 @@ body.preloader-site {
 }
 #loader-wrapper {
     cursor: pointer;
+    z-index: 9999999; /* Higher than the flower loader */
+
 }
 
 .heart-loader:hover {
