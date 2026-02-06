@@ -644,6 +644,25 @@ function toggleNote() {
         note.style.display = 'block';
     }
 }
+        // LOADER LOGIC: This opens the gift
+window.addEventListener("load", function() {
+    const giftLoader = document.getElementById("loader-wrapper");
+    
+    // After 1.5 seconds, hide the gift loader
+    setTimeout(() => {
+        if (giftLoader) {
+            giftLoader.classList.add("loader-hidden");
+        }
+    }, 1500);
+});
+
+// SAFETY NET: If window 'load' fails, force open after 4 seconds
+setTimeout(() => {
+    const giftLoader = document.getElementById("loader-wrapper");
+    if (giftLoader && !giftLoader.classList.contains("loader-hidden")) {
+        giftLoader.classList.add("loader-hidden");
+    }
+}, 4000);
     </script>
 
     <div id="image-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:10001; justify-content:center; align-items:center; cursor:pointer;" onclick="this.style.display='none'">
