@@ -616,53 +616,50 @@
         updateTogetherTimer();
         updateClocks();
 
-        // 5. UI ELEMENTS (Preloader & Modals)
-        $(window).on('load', function() { $('.preloader-wrapper').fadeOut('fast'); });
+     // 5. UI ELEMENTS & LOADER LOGIC
+        $(window).on('load', function() { 
+            // 1. Hide the flower preloader immediately
+            $('.preloader-wrapper').fadeOut('fast');
+
+            // 2. Hide the gift loader after a short delay
+            const giftLoader = document.getElementById("loader-wrapper");
+            setTimeout(() => {
+                if (giftLoader) {
+                    giftLoader.classList.add("loader-hidden");
+                }
+            }, 1500);
+        });
+
+        // SAFETY NET: Force open if the page is slow (4 seconds)
+        setTimeout(() => {
+            $('.preloader-wrapper').fadeOut('fast');
+            const giftLoader = document.getElementById("loader-wrapper");
+            if (giftLoader && !giftLoader.classList.contains("loader-hidden")) {
+                giftLoader.classList.add("loader-hidden");
+            }
+        }, 4000);
+
+        // 6. MODAL & INTERACTION FUNCTIONS
         $('.card-image img').on('click', function() {
             $('#modal-img').attr('src', $(this).attr('src'));
             $('#image-modal').css('display', 'flex');
         });
         
-function openModal(card) {
-    const title = card.querySelector('.title').innerText;
-    const fullBody = card.querySelector('.full-text').innerText;
-    
-    document.getElementById('m-title').innerText = title;
-    document.getElementById('m-body').innerText = fullBody;
-    document.getElementById('lesson-modal').classList.add('is-active');
-}
-
-function closeModal() {
-    document.getElementById('lesson-modal').classList.remove('is-active');
-}
-
-function toggleNote() {
-    const note = document.getElementById('love-note');
-    if (note.style.display === 'block') {
-        note.style.display = 'none';
-    } else {
-        note.style.display = 'block';
-    }
-}
-        // LOADER LOGIC: This opens the gift
-window.addEventListener("load", function() {
-    const giftLoader = document.getElementById("loader-wrapper");
-    
-    // After 1.5 seconds, hide the gift loader
-    setTimeout(() => {
-        if (giftLoader) {
-            giftLoader.classList.add("loader-hidden");
+        function openModal(card) {
+            const title = card.querySelector('.title').innerText;
+            const fullBody = card.querySelector('.full-text').innerText;
+            document.getElementById('m-title').innerText = title;
+            document.getElementById('m-body').innerText = fullBody;
+            document.getElementById('lesson-modal').classList.add('is-active');
         }
-    }, 1500);
-});
 
-// SAFETY NET: If window 'load' fails, force open after 4 seconds
-setTimeout(() => {
-    const giftLoader = document.getElementById("loader-wrapper");
-    if (giftLoader && !giftLoader.classList.contains("loader-hidden")) {
-        giftLoader.classList.add("loader-hidden");
-    }
-}, 4000);
+        function closeModal() {
+            document.getElementById('lesson-modal').classList.remove('is-active');
+        }
+function toggleNote() {
+            const note = document.getElementById('love-note');
+            note.style.display = (note.style.display === 'block') ? 'none' : 'block';
+      } 
     </script>
 
     <div id="image-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:10001; justify-content:center; align-items:center; cursor:pointer;" onclick="this.style.display='none'">
