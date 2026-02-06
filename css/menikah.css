@@ -799,7 +799,43 @@ body.preloader-site {
         color: #996E6D;
         line-height: 1.4;
     }
+/* Taped Note Styles */
+.taped-note {
+    background: #ffffff;
+    padding: 35px;
+    width: 320px;
+    height: 320px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    position: relative;
+    display: inline-block;
+    margin: 20px;
+    border: 1px solid #f0f0f0;
+    transition: transform 0.3s ease;
+}
 
+.taped-note:hover {
+    transform: translateY(-5px);
+}
+
+.tape {
+    background: rgba(220, 220, 220, 0.5);
+    width: 100px;
+    height: 30px;
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.handwritten-text-alt {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 1.4rem;
+    color: #5D4037;
+    margin-top: 15px;
+    line-height: 1.6;
+    text-align: left;
+}
 
 
 
