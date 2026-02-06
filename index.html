@@ -27,7 +27,7 @@
     <audio id="bgMusic" src="https://files.catbox.moe/y65gcn.mp3" loop></audio>
 <div id="loader-wrapper" onclick="openGift()">
     <div class="heart-loader">❤</div>
-    <div class="loader-text">Tap the heart to unwrap...</div>
+    <div class="loader-text">For my favourite Person...</div>
 </div>
     <div class="preloader-wrapper">
         <div class="preloader">
@@ -55,7 +55,7 @@
                 </div>
             </nav>
 
-                                <li><a href="#our-music">Music</a></li>
+                               
             <div class="hero-body">
                 <div class="container has-text-centered">
                     <h1 class="subtitle" data-aos="fade-up">A Journey Just For You</h1>
@@ -630,14 +630,6 @@
             }, 1500);
         });
 
-        // SAFETY NET: Force open if the page is slow (4 seconds)
-        setTimeout(() => {
-            $('.preloader-wrapper').fadeOut('fast');
-            const giftLoader = document.getElementById("loader-wrapper");
-            if (giftLoader && !giftLoader.classList.contains("loader-hidden")) {
-                giftLoader.classList.add("loader-hidden");
-            }
-        }, 4000);
 
         // 6. MODAL & INTERACTION FUNCTIONS
         $('.card-image img').on('click', function() {
