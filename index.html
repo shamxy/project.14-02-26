@@ -585,6 +585,20 @@
             $('#modal-img').attr('src', $(this).attr('src'));
             $('#image-modal').css('display', 'flex');
         });
+        
+function openModal(card) {
+    const title = card.querySelector('.title').innerText;
+    const fullBody = card.querySelector('.full-text').innerText;
+    
+    document.getElementById('m-title').innerText = title;
+    document.getElementById('m-body').innerText = fullBody;
+    document.getElementById('lesson-modal').classList.add('is-active');
+}
+
+function closeModal() {
+    document.getElementById('lesson-modal').classList.remove('is-active');
+}
+
     </script>
 
     <div id="image-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:10001; justify-content:center; align-items:center; cursor:pointer;" onclick="this.style.display='none'">
