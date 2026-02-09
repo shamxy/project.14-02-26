@@ -18,7 +18,7 @@
             font-family: 'Georgia', serif;
         }
 
-        /* RE-ADDING THE FLOATING PETALS FROM THE FIRST SITE */
+        /* FLOATING PETALS */
         .petal {
             position: fixed;
             top: -10%;
@@ -32,13 +32,13 @@
             to { transform: translateY(110vh) rotate(360deg); }
         }
 
-        /* THE FROSTED GLASS EFFECT */
+        /* FROSTED GLASS CONTAINER */
         #main-content {
             display: none;
             text-align: center;
             flex-direction: column;
             align-items: center;
-            background: rgba(255, 255, 255, 0.4); /* Frosted look */
+            background: rgba(255, 255, 255, 0.4);
             backdrop-filter: blur(8px);
             padding: 40px;
             border-radius: 30px;
@@ -83,7 +83,10 @@
             cursor: pointer;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             margin-bottom: 20px;
+            transition: transform 0.2s;
         }
+
+        .save-date-btn:active { transform: scale(0.95); }
 
         .home-link {
             color: #996E6D;
@@ -92,13 +95,22 @@
             opacity: 0.7;
         }
 
-        #envelope-trigger { z-index: 20; text-align: center; cursor: pointer; }
+        /* THE ENVELOPE */
+        #envelope-trigger { 
+            z-index: 20; 
+            text-align: center; 
+            cursor: pointer; 
+            transition: transform 0.3s ease;
+        }
+        #envelope-trigger:hover { transform: scale(1.05); }
+
         .envelope {
             width: 120px;
             height: 80px;
             background: #BC8887;
             position: relative;
             border-radius: 0 0 10px 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
         .envelope::before {
             content: '';
@@ -117,29 +129,29 @@
 
     <div id="envelope-trigger">
         <div class="envelope"></div>
-        <p style="color: #996E6D; margin-top: 20px;">Open your message</p>
     </div>
 
     <div id="main-content">
         <div class="jar-container">❤️</div>
         <h1>You Just Made Me The Happiest Person Ever! ❤️</h1>
         <button id="calendar-btn" class="save-date-btn">Save Our Date ❤️</button>
+        <br>
         <a href="index.html" class="home-link">← Back to our story</a>
     </div>
 
     <script>
-        // ADDING THE PETALS BACK
+        // BACKGROUND PETALS
         function createPetals() {
-            const container = document.body;
+            const symbols = ['🌸', '✨', '💖'];
             for (let i = 0; i < 25; i++) {
                 const petal = document.createElement('div');
                 petal.className = 'petal';
-                petal.innerHTML = '🌸';
+                petal.innerHTML = symbols[Math.floor(Math.random() * symbols.length)];
                 petal.style.left = Math.random() * 100 + 'vw';
-                petal.style.animationDuration = (Math.random() * 3 + 2) + 's';
-                petal.style.opacity = Math.random();
+                petal.style.animationDuration = (Math.random() * 3 + 4) + 's';
+                petal.style.opacity = Math.random() * 0.5 + 0.3;
                 petal.style.fontSize = (Math.random() * 10 + 10) + 'px';
-                container.appendChild(petal);
+                document.body.appendChild(petal);
             }
         }
         createPetals();
@@ -152,27 +164,38 @@
             trigger.style.display = 'none';
             content.style.display = 'flex';
             createHeartBurst(80);
+            
+            // Allow more hearts on click
+            document.body.onclick = (e) => {
+                if (e.target.tagName !== 'A' && e.target.tagName !== 'BUTTON') {
+                    createHeartBurst(15);
+                }
+            };
         };
 
         function createHeartBurst(count) {
             for (let i = 0; i < count; i++) {
                 const heart = document.createElement('div');
                 heart.className = 'heart-particle';
-                heart.innerHTML = '❤️';
+                heart.innerHTML = ['💖', '❤️', '✨'][Math.floor(Math.random() * 3)];
                 heart.style.left = '50vw';
-                heart.style.top = '40vh';
+                heart.style.top = '45vh';
                 document.body.appendChild(heart);
+                
                 const angle = Math.random() * Math.PI * 2;
                 const dist = Math.random() * 400 + 50;
+                
                 heart.animate([
                     { transform: 'translate(-50%, -50%) scale(1)', opacity: 1 },
                     { transform: `translate(${Math.cos(angle)*dist}px, ${Math.sin(angle)*dist}px) scale(0)`, opacity: 0 }
                 ], { duration: 2000, easing: 'ease-out', fill: 'forwards' });
+                
                 setTimeout(() => heart.remove(), 2500);
             }
         }
 
-        btn.onclick = () => {
+        btn.onclick = (e) => {
+            e.stopPropagation();
             const title = encodeURIComponent("Our Anniversary ❤️");
             const dates = "20260214/20260215";
             window.open(`https://www.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${dates}`, '_blank');
