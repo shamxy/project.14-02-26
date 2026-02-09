@@ -557,6 +557,13 @@
     </div>
         
 </div>
+
+    <div class="letter-section" data-aos="fade-up">
+        <div class="letter-paper">
+            <p id="typewriter-text"></p>
+            <span class="cursor">|</span>
+        </div>
+
    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="js/menikah.js"></script>
     <link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
@@ -703,6 +710,44 @@
             unlockAudio();
         }
     }
+    // 7. HEART TRAIL EFFECT
+    let lastX = 0;
+    let lastY = 0;
+
+    window.addEventListener('mousemove', (e) => {
+        // Only create a heart if the mouse has moved a certain distance (15px)
+        const dist = Math.hypot(e.clientX - lastX, e.clientY - lastY);
+        if (dist > 15) {
+            createHeart(e.clientX, e.clientY);
+            lastX = e.clientX;
+            lastY = e.clientY;
+        }
+    });
+
+    // Support for touch screens (mobile)
+    window.addEventListener('touchmove', (e) => {
+        const touch = e.touches[0];
+        createHeart(touch.clientX, touch.clientY);
+    }, { passive: true });
+
+    function createHeart(x, y) {
+        const heart = document.createElement('div');
+        heart.className = 'heart-trail';
+        heart.innerHTML = '❤';
+        
+        // Randomize size and color slightly for variety
+        const colors = ['#BC8887', '#996E6D', '#D8A9A8', '#FFB6C1'];
+        heart.style.color = colors[Math.floor(Math.random() * colors.length)];
+        heart.style.left = x + 'px';
+        heart.style.top = y + 'px';
+        
+        document.body.appendChild(heart);
+        
+        // Remove from DOM after animation finishes
+        setTimeout(() => {
+            heart.remove();
+        }, 1500);
+    }
 </script>
 
     <div id="image-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:10001; justify-content:center; align-items:center; cursor:pointer;" onclick="this.style.display='none'">
