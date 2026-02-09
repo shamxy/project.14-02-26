@@ -550,135 +550,159 @@
         "Just a small reminder as you look through this: I'm so lucky to have you by my side. I love you."
     </p>
 </div>
-    
+    <div class="letter-section" data-aos="fade-up">
+    <div class="letter-paper">
+        <p id="typewriter-text"></p>
+        <span class="cursor">|</span>
+    </div>
+        
+</div>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="js/menikah.js"></script>
     <link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
     <script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
+
+    
 <script>
-    // 1. INITIALIZE ANIMATIONS & GLOBALS
-    AOS.init({ easing: "ease-out", duration: 800 });
-    const mainBgMusic = document.getElementById("bgMusic");
-    let currentPlaylistAudio = null;
+    // 1. INITIALIZE ANIMATIONS & GLOBALS
+    AOS.init({ easing: "ease-out", duration: 800 });
+    const mainBgMusic = document.getElementById("bgMusic");
+    let currentPlaylistAudio = null;
 
-    // 2. MAIN AUDIO UNLOCK
-    function unlockAudio() {
-        if (mainBgMusic) {
-            mainBgMusic.play().catch(e => console.log("Waiting for interaction..."));
-            window.removeEventListener('click', unlockAudio);
-            window.removeEventListener('touchstart', unlockAudio);
-        }
-    }
-    window.addEventListener('click', unlockAudio);
-    window.addEventListener('touchstart', unlockAudio);
+    // 2. MAIN AUDIO UNLOCK
+    function unlockAudio() {
+        if (mainBgMusic) {
+            mainBgMusic.play().catch(e => console.log("Waiting for interaction..."));
+            window.removeEventListener('click', unlockAudio);
+            window.removeEventListener('touchstart', unlockAudio);
+        }
+    }
+    window.addEventListener('click', unlockAudio);
+    window.addEventListener('touchstart', unlockAudio);
 
-    // 3. PLAYLIST LOGIC
-    function playSong(audioUrl, songTitle) {
-        if (mainBgMusic) mainBgMusic.pause();
-        if (currentPlaylistAudio) {
-            currentPlaylistAudio.pause();
-            currentPlaylistAudio.src = "";
-            currentPlaylistAudio.load();
-        }
-        const bar = document.getElementById('now-playing-bar');
-        const trackName = document.getElementById('track-name');
-        trackName.innerText = songTitle;
-        bar.style.display = 'block';
+    // 3. PLAYLIST LOGIC
+    function playSong(audioUrl, songTitle) {
+        if (mainBgMusic) mainBgMusic.pause();
+        if (currentPlaylistAudio) {
+            currentPlaylistAudio.pause();
+            currentPlaylistAudio.src = "";
+            currentPlaylistAudio.load();
+        }
+        const bar = document.getElementById('now-playing-bar');
+        const trackName = document.getElementById('track-name');
+        trackName.innerText = songTitle;
+        bar.style.display = 'block';
 
-        currentPlaylistAudio = new Audio(audioUrl);
-        currentPlaylistAudio.play().catch(e => console.log("Error:", e));
-    }
+        currentPlaylistAudio = new Audio(audioUrl);
+        currentPlaylistAudio.play().catch(e => console.log("Error:", e));
+    }
 
-    // 4. TIMERS & CLOCKS
-    function updateTogetherTimer() {
-        const startDate = new Date(2025, 10, 11); 
-        const now = new Date();
-        const diff = now - startDate;
-        document.getElementById("t-days").innerText = Math.floor(diff / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
-        document.getElementById("t-hours").innerText = Math.floor((diff / (1000 * 60 * 60)) % 24).toString().padStart(2, '0');
-        document.getElementById("t-minutes").innerText = Math.floor((diff / (1000 * 60)) % 60).toString().padStart(2, '0');
-        document.getElementById("t-seconds").innerText = Math.floor((diff / 1000) % 60).toString().padStart(2, '0');
-    }
+    // 4. TIMERS & CLOCKS
+    function updateTogetherTimer() {
+        const startDate = new Date(2025, 10, 11); 
+        const now = new Date();
+        const diff = now - startDate;
+        document.getElementById("t-days").innerText = Math.floor(diff / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
+        document.getElementById("t-hours").innerText = Math.floor((diff / (1000 * 60 * 60)) % 24).toString().padStart(2, '0');
+        document.getElementById("t-minutes").innerText = Math.floor((diff / (1000 * 60)) % 60).toString().padStart(2, '0');
+        document.getElementById("t-seconds").innerText = Math.floor((diff / 1000) % 60).toString().padStart(2, '0');
+    }
 
-    function updateClocks() {
-        const now = new Date();
-        const options1 = { timeZone: 'America/New_York', hour: '2-digit', minute: '2-digit', second: '2-digit' };
-        const options2 = { timeZone: 'Africa/Accra', hour: '2-digit', minute: '2-digit', second: '2-digit' };
-        document.getElementById("local-time-1").innerText = new Intl.DateTimeFormat('en-US', options1).format(now);
-        document.getElementById("local-time-2").innerText = new Intl.DateTimeFormat('en-US', options2).format(now);
-    }
+    function updateClocks() {
+        const now = new Date();
+        const options1 = { timeZone: 'America/New_York', hour: '2-digit', minute: '2-digit', second: '2-digit' };
+        const options2 = { timeZone: 'Africa/Accra', hour: '2-digit', minute: '2-digit', second: '2-digit' };
+        document.getElementById("local-time-1").innerText = new Intl.DateTimeFormat('en-US', options1).format(now);
+        document.getElementById("local-time-2").innerText = new Intl.DateTimeFormat('en-US', options2).format(now);
+    }
 
-    setInterval(updateTogetherTimer, 1000);
-    setInterval(updateClocks, 1000);
-    updateTogetherTimer();
-    updateClocks();
+    setInterval(updateTogetherTimer, 1000);
+    setInterval(updateClocks, 1000);
+    updateTogetherTimer();
+    updateClocks();
 
-    // 5. UI ELEMENTS (Preloader & Modals)
-    $(window).on('load', function() { 
-        $('.preloader-wrapper').fadeOut('fast');
-    });
+    // 5. UI ELEMENTS (Preloader & Modals)
+    $(window).on('load', function() { 
+        $('.preloader-wrapper').fadeOut('fast');
+    });
 
-    $('.card-image img').on('click', function() {
-        $('#modal-img').attr('src', $(this).attr('src'));
-        $('#image-modal').css('display', 'flex');
-    });
+    $('.card-image img').on('click', function() {
+        $('#modal-img').attr('src', $(this).attr('src'));
+        $('#image-modal').css('display', 'flex');
+    });
 
-    function openModal(card) {
-        const title = card.querySelector('.title').innerText;
-        const fullBody = card.querySelector('.full-text').innerText;
-        document.getElementById('m-title').innerText = title;
-        document.getElementById('m-body').innerText = fullBody;
-        document.getElementById('lesson-modal').classList.add('is-active');
-    }
+    function openModal(card) {
+        const title = card.querySelector('.title').innerText;
+        const fullBody = card.querySelector('.full-text').innerText;
+        document.getElementById('m-title').innerText = title;
+        document.getElementById('m-body').innerText = fullBody;
+        document.getElementById('lesson-modal').classList.add('is-active');
+    }
 
-    function closeModal() {
-        document.getElementById('lesson-modal').classList.remove('is-active');
-    }
+    function closeModal() {
+        document.getElementById('lesson-modal').classList.remove('is-active');
+    }
 
-    function toggleNote() {
-        const note = document.getElementById('love-note');
-        note.style.display = (note.style.display === 'block') ? 'none' : 'block';
-    } 
+    function toggleNote() {
+        const note = document.getElementById('love-note');
+        note.style.display = (note.style.display === 'block') ? 'none' : 'block';
+    } 
 
-    // 6. SPECIAL EFFECTS (Gift & Petals)
-    function createPetals() {
-        const symbols = ['🌸', '✨', '💖', '░'];
-        for (let i = 0; i < 25; i++) {
-            const petal = document.createElement('div');
-            petal.className = 'petal';
-            petal.innerHTML = symbols[Math.floor(Math.random() * symbols.length)];
-            petal.style.left = Math.random() * 100 + 'vw';
-            petal.style.fontSize = Math.random() * 20 + 10 + 'px';
-            petal.style.opacity = Math.random();
-            const duration = Math.random() * 5 + 5 + 's';
-            petal.style.animationDuration = duration + ', 3s';
-            petal.style.animationDelay = Math.random() * 5 + 's';
-            document.body.appendChild(petal);
-        }
-    }
+   // 6. SPECIAL EFFECTS (Gift, Petals & Typewriter)
+    const message = "My Dearest, \n\nFrom the moment we started this journey on November 11th, my life has been brighter. This site is just a small piece of my heart for you. Thank you for being you. \n\nAlways yours.";
+    let index = 0;
 
-    function openGift() {
-        const loader = document.getElementById("loader-wrapper");
-        const elem = document.documentElement;
+    function typeWriter() {
+        const textElement = document.getElementById("typewriter-text");
+        if (textElement && index < message.length) {
+            const char = message.charAt(index);
+            textElement.innerHTML += char === "\n" ? "<br>" : char;
+            index++;
+            setTimeout(typeWriter, 50); 
+        }
+    }
 
-        // Trigger Full Screen
-        if (elem.requestFullscreen) {
-            elem.requestFullscreen();
-        } else if (elem.webkitRequestFullscreen) {
-            elem.webkitRequestFullscreen();
-        } else if (elem.msRequestFullscreen) {
-            elem.msRequestFullscreen();
-        }
+    function createPetals() {
+        const symbols = ['🌸', '✨', '💖', '░'];
+        for (let i = 0; i < 25; i++) {
+            const petal = document.createElement('div');
+            petal.className = 'petal';
+            petal.innerHTML = symbols[Math.floor(Math.random() * symbols.length)];
+            petal.style.left = Math.random() * 100 + 'vw';
+            petal.style.fontSize = Math.random() * 20 + 10 + 'px';
+            petal.style.opacity = Math.random();
+            const duration = Math.random() * 5 + 5 + 's';
+            petal.style.animationDuration = duration + ', 3s';
+            petal.style.animationDelay = Math.random() * 5 + 's';
+            document.body.appendChild(petal);
+        }
+    }
 
-        // Run Petals
-        createPetals();
+    function openGift() {
+        const loader = document.getElementById("loader-wrapper");
+        const elem = document.documentElement;
 
-        // Hide Loader & Start Music
-        if (loader) {
-            loader.classList.add("loader-hidden");
-            unlockAudio();
-        }
-    }
+        // Trigger Full Screen
+        if (elem.requestFullscreen) {
+            elem.requestFullscreen();
+        } else if (elem.webkitRequestFullscreen) {
+            elem.webkitRequestFullscreen();
+        } else if (elem.msRequestFullscreen) {
+            elem.msRequestFullscreen();
+        }
+
+        // Run Petals
+        createPetals();
+
+        // Start Typewriter after a 2-second delay
+        setTimeout(typeWriter, 2000);
+
+        // Hide Loader & Start Music
+        if (loader) {
+            loader.classList.add("loader-hidden");
+            unlockAudio();
+        }
+    }
 </script>
 
     <div id="image-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:10001; justify-content:center; align-items:center; cursor:pointer;" onclick="this.style.display='none'">
