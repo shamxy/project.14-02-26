@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>You Said Yes! ❤️</title>
+    <title>A Message For You ❤️</title>
     <style>
         body {
             margin: 0;
@@ -18,30 +18,51 @@
             font-family: 'Georgia', serif;
         }
 
-        /* THE JAR */
-        .jar-container {
-            position: relative;
+        /* THE ENVELOPE (Central Starting Point) */
+        .envelope-wrapper {
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            z-index: 20;
+        }
+        .envelope-wrapper:hover { transform: scale(1.05); }
+
+        .envelope {
             width: 150px;
-            height: 200px;
-            border: 5px solid #996E6D;
-            border-top: none;
-            border-radius: 20px 20px 60px 60px;
-            background: rgba(255, 255, 255, 0.4);
-            overflow: hidden;
-            margin-bottom: 20px;
-            box-shadow: 0 10px 30px rgba(153, 110, 109, 0.1);
+            height: 100px;
+            background: #BC8887;
+            position: relative;
+            border-radius: 0 0 10px 10px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
 
-        .jar-lid {
-            width: 120px;
-            height: 15px;
-            background: #996E6D;
-            border-radius: 10px;
+        .envelope::before {
+            content: '';
             position: absolute;
-            top: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 2;
+            top: -75px;
+            left: 0;
+            border-left: 75px solid transparent;
+            border-right: 75px solid transparent;
+            border-bottom: 75px solid #BC8887;
+        }
+
+        /* HIDDEN ELEMENTS (Appear after click) */
+        .celebration-content {
+            display: none;
+            text-align: center;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .jar-container {
+            position: relative;
+            width: 120px;
+            height: 160px;
+            border: 4px solid #996E6D;
+            border-top: none;
+            border-radius: 10px 10px 40px 40px;
+            background: rgba(255, 255, 255, 0.4);
+            overflow: hidden;
+            margin-top: 20px;
         }
 
         .fill-level {
@@ -53,108 +74,85 @@
             transition: height 0.1s linear;
         }
 
-        /* TEXT & UI */
-        .celebration-container {
-            text-align: center;
-            z-index: 10;
-        }
-
-        #love-percentage {
-            font-size: 4rem;
-            font-weight: 900;
-            color: #996E6D;
-            display: block;
-        }
-
         h1 {
             color: #996E6D;
-            font-size: 2rem;
-            margin: 15px 0;
-            opacity: 0;
-            transition: opacity 1s ease;
+            font-size: 1.8rem;
+            max-width: 80%;
+            margin: 20px 0;
         }
 
         .save-date-btn {
             padding: 12px 25px;
-            border: 2px solid #996E6D;
+            border: none;
             border-radius: 25px;
             background: #996E6D;
             color: white;
             font-family: 'Georgia', serif;
-            font-size: 1rem;
             cursor: pointer;
-            transition: all 0.3s ease;
-            display: none;
-            text-decoration: none;
+            opacity: 0;
+            transition: opacity 1s ease;
         }
 
-        .heart-particle {
-            position: absolute;
-            pointer-events: none;
-            z-index: 5;
-        }
-
-        .visible { opacity: 1 !important; display: inline-block !important; }
+        .heart-particle { position: absolute; pointer-events: none; z-index: 5; }
     </style>
 </head>
 <body>
 
-    <div class="jar-container">
-        <div class="jar-lid"></div>
-        <div id="jar-fill" class="fill-level"></div>
+    <div id="envelope-trigger" class="envelope-wrapper">
+        <div class="envelope"></div>
+        <p style="color: #996E6D; margin-top: 20px; text-align: center;">Click to open</p>
     </div>
 
-    <div class="celebration-container">
-        <span id="love-percentage">0%</span>
-        <h1 id="celebration-text">Filling with love...</h1>
+    <div id="main-content" class="celebration-content">
+        <h1 id="message-text">You've made me the happiest person in the world! ❤️</h1>
+        
+        <div class="jar-container">
+            <div id="jar-fill" class="fill-level"></div>
+        </div>
+
+        <p id="percent-display" style="color: #996E6D; font-weight: bold; font-size: 1.5rem;">0%</p>
+        
         <button id="calendar-btn" class="save-date-btn">Save Our Date ❤️</button>
     </div>
 
     <script>
-        const percentElem = document.getElementById('love-percentage');
-        const textElem = document.getElementById('celebration-text');
+        const envelope = document.getElementById('envelope-trigger');
+        const mainContent = document.getElementById('main-content');
         const fillElem = document.getElementById('jar-fill');
+        const percentElem = document.getElementById('percent-display');
         const btnElem = document.getElementById('calendar-btn');
 
-        function startCelebration() {
-            let count = 0;
-            const duration = 3000; 
-            const intervalTime = 30;
-            const increment = 100 / (duration / intervalTime);
+        envelope.onclick = () => {
+            envelope.style.display = 'none';
+            mainContent.style.display = 'flex';
+            startFilling();
+        };
 
+        function startFilling() {
+            let count = 0;
             const timer = setInterval(() => {
-                count += increment;
+                count += 1;
                 if (count >= 100) {
                     clearInterval(timer);
-                    finalize();
-                } else {
-                    percentElem.innerText = Math.floor(count) + "%";
-                    fillElem.style.height = count + "%";
+                    btnElem.style.opacity = "1";
+                    createHeartBurst(100);
                 }
-            }, intervalTime);
-        }
-
-        function finalize() {
-            percentElem.innerText = "100%";
-            fillElem.style.height = "100%";
-            textElem.innerText = "You've made me the happiest person! ❤️";
-            textElem.classList.add('visible');
-            btnElem.classList.add('visible');
-            
-            createHeartBurst(80);
+                percentElem.innerText = count + "%";
+                fillElem.style.height = count + "%";
+            }, 30);
         }
 
         function createHeartBurst(count) {
             for (let i = 0; i < count; i++) {
                 const heart = document.createElement('div');
                 heart.className = 'heart-particle';
-                heart.innerHTML = ['💖', '❤️', '✨'][Math.floor(Math.random() * 3)];
+                heart.innerHTML = '❤️';
                 heart.style.left = '50vw';
-                heart.style.top = '40vh';
+                heart.style.top = '50vh';
                 document.body.appendChild(heart);
 
                 const angle = Math.random() * Math.PI * 2;
-                const dist = Math.random() * 400 + 100;
+                const dist = Math.random() * 400 + 50;
                 const destX = Math.cos(angle) * dist;
                 const destY = Math.sin(angle) * dist;
 
@@ -162,23 +160,19 @@
                     { transform: 'translate(-50%, -50%) scale(1)', opacity: 1 },
                     { transform: `translate(${destX}px, ${destY}px) scale(0)`, opacity: 0 }
                 ], {
-                    duration: Math.random() * 1500 + 1000,
-                    easing: 'cubic-bezier(0.1, 0.8, 0.3, 1)',
+                    duration: 2000,
+                    easing: 'ease-out',
                     fill: 'forwards'
                 });
-                setTimeout(() => heart.remove(), 3000);
+                setTimeout(() => heart.remove(), 2500);
             }
         }
 
         btnElem.onclick = () => {
             const title = encodeURIComponent("Our Anniversary ❤️");
-            const details = encodeURIComponent("The day she said YES! 💖");
             const dates = "20260214/20260215";
-            window.open(`https://www.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${dates}&details=${details}`, '_blank');
+            window.open(`https://www.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${dates}`, '_blank');
         };
-
-        window.onload = startCelebration;
-        window.onclick = () => { if(percentElem.innerText === "100%") createHeartBurst(15); };
     </script>
 </body>
 </html>
