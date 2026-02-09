@@ -3,103 +3,202 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>You Said Yes! ❤️</title>
+    <title>Our Special Day ❤️</title>
     <style>
         body {
             margin: 0;
             padding: 0;
-            background: #F4E2E2; /* Same dusty pink theme */
+            background: #F4E2E2;
             height: 100vh;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            overflow: hidden; /* Prevents scrollbars during the explosion */
+            overflow: hidden;
             font-family: 'Georgia', serif;
         }
 
+        /* THE JAR */
+        .jar-container {
+            position: relative;
+            width: 150px;
+            height: 200px;
+            border: 5px solid #996E6D;
+            border-top: none;
+            border-radius: 20px 20px 60px 60px;
+            background: rgba(255, 255, 255, 0.3);
+            overflow: hidden;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        .jar-lid {
+            width: 120px;
+            height: 15px;
+            background: #996E6D;
+            border-radius: 10px;
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+        }
+
+        .fill-level {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 0%; /* Controlled by JS */
+            background: #BC8887;
+            transition: height 0.1s linear;
+        }
+
+        .jar-heart {
+            position: absolute;
+            font-size: 1.2rem;
+            bottom: -20px;
+            transition: all 0.5s ease;
+        }
+
+        /* TEXT & UI */
         .celebration-container {
             text-align: center;
             z-index: 10;
         }
 
+        #love-percentage {
+            font-size: 4rem;
+            font-weight: 900;
+            color: #996E6D;
+            display: block;
+        }
+
         h1 {
             color: #996E6D;
-            font-size: 3rem;
+            font-size: 1.8rem;
+            margin: 15px 0;
             opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 1s ease forwards 0.5s;
+        }
+
+        .save-date-btn {
+            padding: 12px 25px;
+            border: 2px solid #996E6D;
+            border-radius: 25px;
+            background: #996E6D;
+            color: white;
+            font-family: 'Georgia', serif;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: none; /* Shows at the end */
         }
 
         .heart-particle {
             position: absolute;
             pointer-events: none;
-            user-select: none;
             z-index: 5;
         }
 
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+        .visible { opacity: 1 !important; display: inline-block !important; }
     </style>
 </head>
 <body>
 
+    <div class="jar-container">
+        <div class="jar-lid"></div>
+        <div id="jar-fill" class="fill-level"></div>
+    </div>
+
     <div class="celebration-container">
-        <h1>You've made me the happiest person! ❤️</h1>
-        <p style="color: #BC8887; font-size: 1.2rem;">Our journey truly begins today.</p>
+        <span id="love-percentage">0%</span>
+        <h1 id="celebration-text">Filling with love...</h1>
+        <button id="calendar-btn" class="save-date-btn">Save Our Date ❤️</button>
     </div>
 
     <script>
-        function createHeartBurst() {
-            const count = 75; // Number of hearts in the burst
-            const container = document.body;
-            const centerX = window.innerWidth / 2;
-            const centerY = window.innerHeight / 2;
+        const percentElem = document.getElementById('love-percentage');
+        const textElem = document.getElementById('celebration-text');
+        const fillElem = document.getElementById('jar-fill');
+        const btnElem = document.getElementById('calendar-btn');
 
+        function startCelebration() {
+            let count = 0;
+            const duration = 4000; // 4 seconds total
+            const intervalTime = 40;
+            const increment = 100 / (duration / intervalTime);
+
+            const timer = setInterval(() => {
+                count += increment;
+                if (count >= 100) {
+                    clearInterval(timer);
+                    finalize();
+                } else {
+                    percentElem.innerText = Math.floor(count) + "%";
+                    fillElem.style.height = count + "%";
+                    if (Math.random() > 0.7) spawnJarHeart();
+                }
+            }, intervalTime);
+        }
+
+        function spawnJarHeart() {
+            const h = document.createElement('div');
+            h.className = 'jar-heart';
+            h.innerHTML = '❤️';
+            h.style.left = Math.random() * 80 + 10 + '%';
+            document.querySelector('.jar-container').appendChild(h);
+            
+            // Floating up slightly inside the jar
+            setTimeout(() => {
+                h.style.bottom = Math.random() * 80 + '%';
+                h.style.opacity = '0.7';
+            }, 50);
+        }
+
+        function finalize() {
+            percentElem.innerText = "100%";
+            fillElem.style.height = "100%";
+            textElem.innerText = "You've made me the luckiest person! ❤️";
+            textElem.classList.add('visible');
+            btnElem.classList.add('visible');
+            
+            createHeartBurst(100); // Big explosion
+        }
+
+        function createHeartBurst(count) {
             for (let i = 0; i < count; i++) {
                 const heart = document.createElement('div');
                 heart.className = 'heart-particle';
-                heart.innerHTML = '💖';
-                
-                // Randomize size
-                const size = Math.random() * 20 + 15;
-                heart.style.fontSize = size + 'px';
-                
-                // Set initial position to the center
-                heart.style.left = centerX + 'px';
-                heart.style.top = centerY + 'px';
-                
-                container.appendChild(heart);
+                heart.innerHTML = ['💖', '❤️', '🌸', '✨'][Math.floor(Math.random() * 4)];
+                heart.style.left = '50vw';
+                heart.style.top = '40vh';
+                document.body.appendChild(heart);
 
-                // Calculate random trajectory
                 const angle = Math.random() * Math.PI * 2;
-                const velocity = Math.random() * 15 + 5;
-                const destinationX = Math.cos(angle) * (window.innerWidth * 0.8) + centerX;
-                const destinationY = Math.sin(angle) * (window.innerHeight * 0.8) + centerY;
+                const dist = Math.random() * 500 + 100;
+                const destX = Math.cos(angle) * dist;
+                const destY = Math.sin(angle) * dist;
 
-                // Animate using the Web Animations API
                 heart.animate([
                     { transform: 'translate(-50%, -50%) scale(1)', opacity: 1 },
-                    { transform: `translate(${destinationX - centerX}px, ${destinationY - centerY}px) scale(0)`, opacity: 0 }
+                    { transform: `translate(${destX}px, ${destY}px) scale(0)`, opacity: 0 }
                 ], {
-                    duration: Math.random() * 2000 + 1000,
-                    easing: 'cubic-bezier(0.1, 0.8, 0.3, 1)',
+                    duration: Math.random() * 2000 + 1500,
+                    easing: 'ease-out',
                     fill: 'forwards'
                 });
-
-                // Clean up DOM
-                setTimeout(() => heart.remove(), 3000);
+                setTimeout(() => heart.remove(), 3500);
             }
         }
 
-        // Trigger the burst immediately when the page loads
-        window.onload = createHeartBurst;
+        btnElem.onclick = () => {
+            const title = encodeURIComponent("Our Anniversary ❤️");
+            const details = encodeURIComponent("The day she said YES! 💖");
+            const dates = "20260214/20260215";
+            window.open(`https://www.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${dates}&details=${details}`, '_blank');
+        };
 
-        // Also trigger it if she clicks anywhere on this page
-        window.onclick = createHeartBurst;
+        window.onload = startCelebration;
+        window.onclick = () => { if(percentElem.innerText === "100%") createHeartBurst(20); };
     </script>
 </body>
 </html>
