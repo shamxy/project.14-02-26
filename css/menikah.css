@@ -918,7 +918,25 @@ body.preloader-site {
     0%, 100% { transform: translateX(0) rotate(0deg); }
     50% { transform: translateX(50px) rotate(20deg); }
 }
+.heart-trail {
+    position: fixed;
+    pointer-events: none; /* So she can still click buttons through them */
+    z-index: 10000;
+    font-size: 1.2rem;
+    animation: float-and-fade 1.5s linear forwards;
+    user-select: none;
+}
 
+@keyframes float-and-fade {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-50px) rotate(45deg);
+        opacity: 0;
+    }
+}
 
 
 
