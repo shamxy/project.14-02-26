@@ -40,7 +40,7 @@
             margin: 20px;
         }
 
-        /* PHOTO GALLERY LAYOUT */
+        /* PHOTO GALLERY */
         .photo-gallery {
             display: flex;
             justify-content: center;
@@ -54,17 +54,16 @@
             padding: 10px 10px 30px 10px;
             box-shadow: 0 10px 20px rgba(0,0,0,0.1);
             transition: 0.5s ease;
-            position: relative;
+            cursor: pointer; /* Indicates it's clickable */
         }
 
         .photo-frame img {
-            width: 160px;
-            height: 160px;
+            width: 140px;
+            height: 140px;
             object-fit: cover;
             display: block;
         }
 
-        /* Fan effect for the 3 images */
         .pic-1 { transform: rotate(-10deg) translateX(20px); z-index: 1; }
         .pic-2 { transform: rotate(2deg); z-index: 3; scale: 1.1; }
         .pic-3 { transform: rotate(12deg) translateX(-20px); z-index: 2; }
@@ -74,7 +73,34 @@
             z-index: 10;
         }
 
-        /* TEXT SYTLES */
+        /* LIGHTBOX OVERLAY */
+        #lightbox {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            cursor: zoom-out;
+        }
+
+        #lightbox img {
+            max-width: 90%;
+            max-height: 80%;
+            border: 10px solid white;
+            border-radius: 5px;
+            box-shadow: 0 0 30px rgba(0,0,0,0.5);
+            animation: zoomIn 0.3s ease-out;
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.5); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        /* BUTTONS & TYPOGRAPHY */
         .congrats-title {
             color: var(--dark-text);
             font-weight: 700;
@@ -91,13 +117,11 @@
             border-radius: 5px;
             padding: 15px 35px;
             font-weight: 700;
-            letter-spacing: 1px;
             text-transform: uppercase;
-            transition: 0.3s;
             cursor: pointer;
         }
-        
-        /* ENVELOPE (From previous steps) */
+
+        /* ENVELOPE */
         #envelope-wrapper { cursor: pointer; z-index: 10; text-align: center; }
         .envelope {
             width: 150px; height: 100px;
@@ -115,6 +139,10 @@
 </head>
 <body>
 
+    <div id="lightbox" onclick="this.style.display='none'">
+        <img id="lightbox-img" src="" alt="Zoomed view">
+    </div>
+
     <div id="envelope-wrapper">
         <div class="envelope"></div>
         <p style="margin-top: 25px; color: var(--dark-text); font-weight: 700; text-transform: uppercase; font-size: 0.8rem;">Open Your Heart</p>
@@ -122,13 +150,13 @@
 
     <div id="main-content">
         <div class="photo-gallery">
-            <div class="photo-frame pic-1">
+            <div class="photo-frame pic-1" onclick="openLightbox('msg1.jpg')">
                 <img src="msg1.jpg" alt="Memory 1">
             </div>
-            <div class="photo-frame pic-2">
+            <div class="photo-frame pic-2" onclick="openLightbox('msg2.jpg')">
                 <img src="msg2.jpg" alt="Memory 2">
             </div>
-            <div class="photo-frame pic-3">
+            <div class="photo-frame pic-3" onclick="openLightbox('msg3.jpg')">
                 <img src="msg3.jpg" alt="Memory 3">
             </div>
         </div>
@@ -147,6 +175,8 @@
         const wrapper = document.getElementById('envelope-wrapper');
         const content = document.getElementById('main-content');
         const music = document.getElementById('congratsMusic');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
 
         wrapper.onclick = () => {
             wrapper.style.display = 'none';
@@ -154,7 +184,13 @@
             music.play();
         };
 
-        document.getElementById('save-date').onclick = () => {
+        function openLightbox(src) {
+            lightboxImg.src = src;
+            lightbox.style.display = 'flex';
+        }
+
+        document.getElementById('save-date').onclick = (e) => {
+            e.stopPropagation();
             const eventName = encodeURIComponent("The Day Pookie Said Yes ❤️");
             window.open(`https://www.google.com/calendar/render?action=TEMPLATE&text=${eventName}`, '_blank');
         };
