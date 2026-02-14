@@ -88,44 +88,57 @@
     
     <div class="main-content">
 
-    <section class="section-light no-padding-top regular-section has-text-centered" id="timeline">
+ <section class="section-light no-padding-top regular-section has-text-centered" id="timeline">
     <div data-aos="fade-up">
         <br><br><h1 class="title">Our Timeline</h1>
         <p class="subtitle">Every second counts since we started this journey.</p>
     </div>
 
     <div class="container has-text-centered" data-aos="fade-up" style="margin: 40px 0;">
-        <ul id="hitungmundur" style="list-style: none; display: flex; justify-content: center; align-items: flex-start; padding: 0;"> 
-            <li style="margin: 0 15px; text-align: center;">
-                <span id="t-days" style="font-size: 3.5rem; font-weight: 900; color: #996E6D; display: block; line-height: 1;">00</span>
-                <strong style="text-transform: uppercase; font-size: 0.8rem; color: #BC8887; letter-spacing: 1px;">Days</strong>
+        <ul id="hitungmundur" style="list-style: none; display: flex; justify-content: center; align-items: center; padding: 0; max-width: 900px; margin: 0 auto;"> 
+            
+            <li style="flex: 1; text-align: center;">
+                <span id="t-months" style="font-size: 2.8rem; font-weight: 900; color: #996E6D; display: block; line-height: 1;">00</span>
+                <strong style="text-transform: uppercase; font-size: 0.7rem; color: #BC8887; letter-spacing: 1px;">Months</strong>
             </li>
 
-            <li class="separator" style="font-size: 2.5rem; color: #BC8887; padding-top: 5px;">:</li>
+            <li class="separator" style="font-size: 1.5rem; color: #BC8887; line-height: 1; margin-bottom: 15px;">:</li>
 
-            <li style="margin: 0 15px; text-align: center;">
-                <span id="t-hours" style="font-size: 3.5rem; font-weight: 900; color: #996E6D; display: block; line-height: 1;">00</span>
-                <strong style="text-transform: uppercase; font-size: 0.8rem; color: #BC8887; letter-spacing: 1px;">Hours</strong>
+            <li style="flex: 1; text-align: center;">
+                <span id="t-weeks" style="font-size: 2.8rem; font-weight: 900; color: #996E6D; display: block; line-height: 1;">00</span>
+                <strong style="text-transform: uppercase; font-size: 0.7rem; color: #BC8887; letter-spacing: 1px;">Weeks</strong>
             </li>
 
-            <li class="separator" style="font-size: 2.5rem; color: #BC8887; padding-top: 5px;">:</li>
+            <li class="separator" style="font-size: 1.5rem; color: #BC8887; line-height: 1; margin-bottom: 15px;">:</li>
 
-            <li style="margin: 0 15px; text-align: center;">
-                <span id="t-minutes" style="font-size: 3.5rem; font-weight: 900; color: #996E6D; display: block; line-height: 1;">00</span>
-                <strong style="text-transform: uppercase; font-size: 0.8rem; color: #BC8887; letter-spacing: 1px;">Minutes</strong>
+            <li style="flex: 1; text-align: center;">
+                <span id="t-days" style="font-size: 2.8rem; font-weight: 900; color: #996E6D; display: block; line-height: 1;">00</span>
+                <strong style="text-transform: uppercase; font-size: 0.7rem; color: #BC8887; letter-spacing: 1px;">Days</strong>
             </li>
 
-            <li class="separator" style="font-size: 2.5rem; color: #BC8887; padding-top: 5px;">:</li>
+            <li class="separator" style="font-size: 1.5rem; color: #BC8887; line-height: 1; margin-bottom: 15px;">:</li>
 
-            <li style="margin: 0 15px; text-align: center;">
-                <span id="t-seconds" style="font-size: 3.5rem; font-weight: 900; color: #996E6D; display: block; line-height: 1;">00</span>
-                <strong style="text-transform: uppercase; font-size: 0.8rem; color: #BC8887; letter-spacing: 1px;">Seconds</strong>
+            <li style="flex: 1; text-align: center;">
+                <span id="t-hours" style="font-size: 2.8rem; font-weight: 900; color: #996E6D; display: block; line-height: 1;">00</span>
+                <strong style="text-transform: uppercase; font-size: 0.7rem; color: #BC8887; letter-spacing: 1px;">Hours</strong>
+            </li>
+
+            <li class="separator" style="font-size: 1.5rem; color: #BC8887; line-height: 1; margin-bottom: 15px;">:</li>
+
+            <li style="flex: 1; text-align: center;">
+                <span id="t-minutes" style="font-size: 2.8rem; font-weight: 900; color: #996E6D; display: block; line-height: 1;">00</span>
+                <strong style="text-transform: uppercase; font-size: 0.7rem; color: #BC8887; letter-spacing: 1px;">Mins</strong>
+            </li>
+
+            <li class="separator" style="font-size: 1.5rem; color: #BC8887; line-height: 1; margin-bottom: 15px;">:</li>
+
+            <li style="flex: 1; text-align: center;">
+                <span id="t-seconds" style="font-size: 2.8rem; font-weight: 900; color: #996E6D; display: block; line-height: 1;">00</span>
+                <strong style="text-transform: uppercase; font-size: 0.7rem; color: #BC8887; letter-spacing: 1px;">Secs</strong>
             </li>
         </ul>
     </div>
 </section>
-
-
         
 
      
@@ -658,29 +671,58 @@
         currentPlaylistAudio.play().catch(e => console.log("Error:", e));
     }
 
-    // 4. TIMERS & CLOCKS
-    function updateTogetherTimer() {
-        const startDate = new Date(2025, 10, 11); 
-        const now = new Date();
-        const diff = now - startDate;
-        document.getElementById("t-days").innerText = Math.floor(diff / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
-        document.getElementById("t-hours").innerText = Math.floor((diff / (1000 * 60 * 60)) % 24).toString().padStart(2, '0');
-        document.getElementById("t-minutes").innerText = Math.floor((diff / (1000 * 60)) % 60).toString().padStart(2, '0');
-        document.getElementById("t-seconds").innerText = Math.floor((diff / 1000) % 60).toString().padStart(2, '0');
-    }
+   // 4. TIMERS & CLOCKS
+function updateTogetherTimer() {
+    const startDate = new Date(2025, 10, 11); // Nov 11, 2025
+    const now = new Date();
+    
+    let years = now.getFullYear() - startDate.getFullYear();
+    let months = (now.getMonth() - startDate.getMonth()) + (years * 12);
+    
+    // Create a temporary date to calculate remaining days after months
+    const tempDate = new Date(startDate);
+    tempDate.setMonth(tempDate.getMonth() + months);
+    
+    // If tempDate is in the future, we overshot by one month
+    if (tempDate > now) {
+        months--;
+        tempDate.setMonth(startDate.getMonth() + months);
+    }
+    
+    // Difference in milliseconds after subtracting full months
+    const diff = now - tempDate;
+    
+    // Calculate weeks and the remaining days
+    const totalDays = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const weeks = Math.floor(totalDays / 7);
+    const days = totalDays % 7;
+    
+    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((diff / (1000 * 60)) % 60);
+    const seconds = Math.floor((diff / 1000) % 60);
 
-    function updateClocks() {
-        const now = new Date();
-        const options1 = { timeZone: 'America/New_York', hour: '2-digit', minute: '2-digit', second: '2-digit' };
-        const options2 = { timeZone: 'Africa/Accra', hour: '2-digit', minute: '2-digit', second: '2-digit' };
-        document.getElementById("local-time-1").innerText = new Intl.DateTimeFormat('en-US', options1).format(now);
-        document.getElementById("local-time-2").innerText = new Intl.DateTimeFormat('en-US', options2).format(now);
-    }
+    // Update the HTML
+    document.getElementById("t-months").innerText = months.toString().padStart(2, '0');
+    document.getElementById("t-weeks").innerText = weeks.toString().padStart(2, '0');
+    document.getElementById("t-days").innerText = days.toString().padStart(2, '0');
+    document.getElementById("t-hours").innerText = hours.toString().padStart(2, '0');
+    document.getElementById("t-minutes").innerText = minutes.toString().padStart(2, '0');
+    document.getElementById("t-seconds").innerText = seconds.toString().padStart(2, '0');
+}
 
-    setInterval(updateTogetherTimer, 1000);
-    setInterval(updateClocks, 1000);
-    updateTogetherTimer();
-    updateClocks();
+function updateClocks() {
+    const now = new Date();
+    const options1 = { timeZone: 'America/New_York', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
+    const options2 = { timeZone: 'Africa/Accra', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
+    
+    document.getElementById("local-time-1").innerText = new Intl.DateTimeFormat('en-GB', options1).format(now);
+    document.getElementById("local-time-2").innerText = new Intl.DateTimeFormat('en-GB', options2).format(now);
+}
+
+setInterval(updateTogetherTimer, 1000);
+setInterval(updateClocks, 1000);
+updateTogetherTimer();
+updateClocks();
 
     // 5. UI ELEMENTS (Preloader & Modals)
     $(window).on('load', function() { 
