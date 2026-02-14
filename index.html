@@ -546,20 +546,21 @@
 </section>
 
     
-      <section class="section-dark contact" id="rsvp" style="position: relative; min-height: 450px; display: flex; align-items: center; overflow: hidden;">
+     <section class="section-dark contact" id="rsvp" style="position: relative; min-height: 500px; display: flex; align-items: center; justify-content: center; overflow: hidden;">
     <div class="container">
         <div class="column is-12 has-text-centered" data-aos="zoom-in">
-            <h1 class="title section-title" style="color: white;">One Final Question...</h1>
-            <p class="subtitle" style="color: white; font-size: 1.5rem;">Will you make me the luckiest person and be my girlfriend?</p>
+            <h1 class="title section-title" style="color: white; font-family: 'Montserrat', sans-serif;">One Final Question...</h1>
+            <p class="subtitle" style="color: white; font-family: 'Sacramento', cursive; font-size: 2.5rem;">Will you make me the luckiest person and be my girlfriend?</p>
             <br>
             
-            <div class="buttons is-centered" style="position: relative; height: 100px;">
-                <a href="celebration.html" id="yes-btn" class="button btn-whatsapp is-large" style="z-index: 10; transition: transform 0.3s ease;">
+            <div id="button-area" style="height: 150px; display: flex; align-items: center; justify-content: center;">
+                
+                <a href="celebration.html" class="button btn-whatsapp is-large" style="z-index: 10; margin-right: 20px;">
                     <i class="fas fa-heart"></i> &nbsp; YES, I WILL!
                 </a>
 
                 <button id="no-btn" class="button is-danger is-outlined is-large" 
-                        style="position: absolute; transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275); z-index: 5; border-radius: 50px; margin-left: 250px;">
+                        style="transition: all 0.1s ease; z-index: 20; border-radius: 50px;">
                     No
                 </button>
             </div>
@@ -567,6 +568,7 @@
     </div>
 </section>
 
+    
     <div class="footer">
         <div class="container has-text-centered">
             <p>2026 © Created with love for My Pookie</p>
@@ -596,45 +598,31 @@
     
 <script>
     const noBtn = document.getElementById('no-btn');
-    const yesBtn = document.getElementById('yes-btn');
-    let scale = 1;
-    let opacity = 1;
 
-    const moveAndVanish = () => {
-        // Calculate a random position within the viewport
-        const x = Math.random() * (window.innerWidth - noBtn.offsetWidth - 50);
-        const y = Math.random() * (window.innerHeight - noBtn.offsetHeight - 50);
-        
-        // Shrink and fade logic
-        scale -= 0.2;
-        opacity -= 0.2;
+    const teleport = () => {
+        // Calculate random position within the entire viewport
+        // Subtracting button size to keep it from going off-screen
+        const newX = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+        const newY = Math.random() * (window.innerHeight - noBtn.offsetHeight);
 
-        if (scale <= 0.1) {
-            noBtn.style.display = 'none'; // Button vanishes completely
-            yesBtn.classList.add('is-focused'); // Highlight the Yes button
-            yesBtn.style.transform = 'scale(1.2)';
-        } else {
-            noBtn.style.position = 'fixed';
-            noBtn.style.left = `${x}px`;
-            noBtn.style.top = `${y}px`;
-            noBtn.style.transform = `scale(${scale})`;
-            noBtn.style.opacity = opacity;
-        }
+        noBtn.style.position = 'fixed';
+        noBtn.style.left = `${newX}px`;
+        noBtn.style.top = `${newY}px`;
     };
 
-    // Move on hover (Desktop)
-    noBtn.addEventListener('mouseenter', moveAndVanish);
-    
-    // Move on touch (Mobile)
+    // Teleport on hover (Desktop)
+    noBtn.addEventListener('mouseenter', teleport);
+
+    // Teleport on touch (Mobile)
     noBtn.addEventListener('touchstart', (e) => {
-        e.preventDefault();
-        moveAndVanish();
+        e.preventDefault(); // Prevents accidental clicking while touching
+        teleport();
     });
 
-    // Fallback if they manage to click it
+    // Just in case she's lightning-fast
     noBtn.addEventListener('click', () => {
-        alert("System Error: This option is no longer available. ❤️");
-        noBtn.style.display = 'none';
+        alert("Nice try! But that's not the right answer. ❤️");
+        teleport();
     });
     
     // 1. INITIALIZE ANIMATIONS & GLOBALS
