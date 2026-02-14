@@ -938,6 +938,15 @@ body.preloader-site {
     }
 }
 
+@keyframes popIn {
+    0% { transform: scale(0.5) translateY(20px); opacity: 0; }
+    100% { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+/* Make sure the floating button is always clickable */
+.floating-note-btn {
+    pointer-events: auto !important;
+}
 
 
 
