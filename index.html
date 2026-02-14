@@ -541,9 +541,12 @@
     </p> 
 
 </div>
-<div class="floating-note-btn" onclick="toggleNote()">
-    ❤
+<div id="love-note" style="display:none; position:fixed; bottom: 85px; right: 25px; width: 260px; background: white; padding: 20px; border-radius: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.15); z-index: 10000; border: 2px solid #F4E2E2; animation: popIn 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);">
+    <div style="color: #BC8887; font-size: 1.2rem; margin-bottom: 8px;">❤</div>
+    <p id="note-text" style="font-family: 'Georgia', serif; color: #555; font-size: 0.95rem; line-height: 1.5;">
+        </p>
 </div>
+
 
 
    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
