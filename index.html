@@ -611,7 +611,9 @@
 
 </div>
     
-<div id="love-note" style="display:none; position:fixed; bottom: 85px; right: 25px; width: 260px; background: white; padding: 20px; border-radius: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.15); z-index: 10000; border: 2px solid #F4E2E2; animation: popIn 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);">
+<div id="love-note" style="display:none; position:fixed; bottom: 85px; right: 25px; width: 260px; background: 
+    white; padding: 20px; border-radius: 20px; box-shadow: 0 15px 
+    35px rgba(0,0,0,0.15); z-index: 10000; border: 2px solid #F4E2E2; animation: popIn 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);">
     <div style="color: #BC8887; font-size: 1.5rem; margin-bottom: 8px; text-align: center;">
         ❤
     </div>
@@ -892,8 +894,8 @@ function toggleNote() {
         z-index:10001; justify-content:center; align-items:center; cursor:pointer;" onclick="this.style.display='none'">
         <img id="modal-img" src="image/heartstcker.jpg" style="max-width:90%; max-height:90%; border: 3px solid white; border-radius: 5px;">❤</img>
     </div>
-    <div class="floating-note-btn" onclick="toggleNote()">
-    <i class="fas fa-heart"></i>
+  <div class="floating-note-btn" onclick="toggleNote()" style="cursor: pointer; display: flex; align-items: center; justify-content: center;">
+    <img src="image/heartstcker.jpg" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;" alt="Heart">
 </div>
 
 </body>
