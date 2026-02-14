@@ -1004,7 +1004,19 @@ body.preloader-site {
     #hitungmundur { gap: 15px; } 
     .timer-sep { display: none; } /* Total calm for tiny screens */
 }
-
+/* Precise Centering for the Timeline */
+#hitungmundur {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; 
+    gap: 5px;
+    padding: 0;           /* Removes default browser list padding */
+    margin: 0 auto;       /* Centers the block itself */
+    list-style: none;
+    width: 100%;          /* Ensures it takes up the full container width */
+    text-align: center;
+}
 
 
 
