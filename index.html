@@ -567,7 +567,7 @@
             </p>
             
             <p style="position: absolute; bottom: 25px; right: 25px; font-weight: bold; color: #BC8887; font-family: sans-serif;">
-                — Always
+                
             </p>
         </div>
     </div>
@@ -614,6 +614,10 @@
 <div id="love-note" style="display:none; position:fixed; bottom: 85px; right: 25px; width: 260px; background: white; padding: 20px; border-radius: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.15); z-index: 10000; border: 2px solid #F4E2E2; animation: popIn 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);">
     <div style="color: #BC8887; font-size: 1.5rem; margin-bottom: 8px; text-align: center;">
         ❤
+    </div>
+    <p id="note-text" style="font-family: 'Georgia', serif; color: #555; font-size: 0.95rem; line-height: 1.5; text-align: center; margin: 0;">
+        ...
+    </p>
 </div>
 
 
@@ -771,6 +775,27 @@ updateClocks();
     "Counting down the seconds until I can see you again!"
 ];
 
+const messages = [
+    "You're the best part of my day.",
+    "Thinking of you always makes me smile.",
+    "I'm so lucky to have you, Pookie.",
+    "Every second with you is a gift.",
+    "You are my favorite person.",
+    "I can't wait for our next adventure together!"
+];
+const messages = [
+    "You're the best part of my day.",
+    "Thinking of you always makes me smile.",
+    "I'm so lucky to have you, Abena.",
+    "Every second with you is a gift.",
+    "You are my favorite person.",
+    "I love the way you laugh.",
+    "You're the most beautiful girl I know.",
+    "I'm so glad we met back in October.",
+    "Distance is just a test we're passing.",
+    "I can't wait to see you again."
+];
+
 function toggleNote() {
     const note = document.getElementById('love-note');
     const textElement = document.getElementById('note-text');
@@ -782,14 +807,14 @@ function toggleNote() {
         
         note.style.display = 'block';
         
-        // Optional: Auto-hide after 6 seconds so it doesn't clutter her screen
-        setTimeout(() => { note.style.display = 'none'; }, 6000);
+        // Auto-hide after 6 seconds
+        setTimeout(() => { 
+            note.style.display = 'none'; 
+        }, 6000);
     } else {
         note.style.display = 'none';
     }
 }
-
-
 
    // 6. SPECIAL EFFECTS (Gift, Petals & Typewriter)
     const message = "My Dearest, \n\nFrom the moment we started this journey on November 11th, my life has been brighter. This site is just a small piece of my heart for you. Thank you for being you. \n\nAlways yours.";
@@ -886,8 +911,9 @@ function toggleNote() {
     }
 </script>
 
-    <div id="image-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:10001; justify-content:center; align-items:center; cursor:pointer;" onclick="this.style.display='none'">
-        <img id="modal-img" src="" style="max-width:90%; max-height:90%; border: 3px solid white; border-radius: 5px;">❤</img>
+    <div id="image-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9);
+        z-index:10001; justify-content:center; align-items:center; cursor:pointer;" onclick="this.style.display='none'">
+        <img id="modal-img" src="image/heartstcker.jpg" style="max-width:90%; max-height:90%; border: 3px solid white; border-radius: 5px;">❤</img>
     </div>
     <div class="floating-note-btn" onclick="toggleNote()">
     <i class="fas fa-heart"></i>
