@@ -764,25 +764,6 @@ updateClocks();
         document.getElementById('lesson-modal').classList.remove('is-active');
     }
 
-    const messages = [
-    "Just a reminder: You're doing amazing today, Pookie. 💖",
-    "I'm so lucky to have you in my world. ✨",
-    "Thinking of you and smiling like an idiot right now. 😊",
-    "You're my favorite human. Just thought you should know.",
-    "Distance is temporary, but 'us' is forever. ✈️❤",
-    "You make everything better just by being you.",
-    "I hope your day is as beautiful as your smile.",
-    "Counting down the seconds until I can see you again!"
-];
-
-const messages = [
-    "You're the best part of my day.",
-    "Thinking of you always makes me smile.",
-    "I'm so lucky to have you, Pookie.",
-    "Every second with you is a gift.",
-    "You are my favorite person.",
-    "I can't wait for our next adventure together!"
-];
 const messages = [
     "You're the best part of my day.",
     "Thinking of you always makes me smile.",
@@ -791,16 +772,12 @@ const messages = [
     "You are my favorite person.",
     "I love the way you laugh.",
     "You're the most beautiful girl I know.",
-    "I'm so glad we met back in October.",
-    "Distance is just a test we're passing.",
-    "I can't wait to see you again."
 ];
 
 function toggleNote() {
     const note = document.getElementById('love-note');
     const textElement = document.getElementById('note-text');
     
-    // If note is hidden, pick a new message before showing it
     if (note.style.display === 'none' || note.style.display === '') {
         const randomMessage = messages[Math.floor(Math.random() * messages.length)];
         textElement.innerText = randomMessage;
