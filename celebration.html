@@ -24,6 +24,34 @@
             overflow-x: hidden;
         }
 
+        /* THE IMAGE TRIGGER STYLE */
+        #envelope-wrapper { 
+            cursor: pointer; 
+            z-index: 10; 
+            text-align: center; 
+        }
+
+        .trigger-image {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 6px solid white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            animation: pulse-heart 2s infinite ease-in-out;
+            transition: transform 0.3s ease;
+        }
+
+        #envelope-wrapper:hover .trigger-image {
+            transform: scale(1.1) rotate(3deg);
+        }
+
+        @keyframes pulse-heart {
+            0% { transform: scale(1); box-shadow: 0 10px 30px rgba(0,0,0,0.15); }
+            50% { transform: scale(1.08); box-shadow: 0 15px 45px rgba(188, 136, 135, 0.4); }
+            100% { transform: scale(1); box-shadow: 0 10px 30px rgba(0,0,0,0.15); }
+        }
+
         /* GLASS CARD */
         #main-content {
             display: none;
@@ -140,20 +168,6 @@
             text-transform: uppercase;
             cursor: pointer;
         }
-
-        #envelope-wrapper { cursor: pointer; z-index: 10; text-align: center; }
-        .envelope {
-            width: 150px; height: 100px;
-            background: var(--primary-pink);
-            position: relative;
-            border-radius: 0 0 8px 8px;
-            margin: 0 auto;
-        }
-        .envelope::before {
-            content: ''; position: absolute; top: -75px; left: 0;
-            border-left: 75px solid transparent; border-right: 75px solid transparent;
-            border-bottom: 76px solid var(--primary-pink);
-        }
     </style>
 </head>
 <body>
@@ -164,8 +178,8 @@
     </div>
 
     <div id="envelope-wrapper">
-        <div class="envelope"></div>
-        <p style="margin-top: 25px; color: var(--dark-text); font-weight: 700; text-transform: uppercase; font-size: 0.8rem;">Open Your Heart</p>
+        <img src="cover.jpg" class="trigger-image" alt="Open Me">
+        <p style="margin-top: 25px; color: var(--dark-text); font-weight: 700; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px;">Click to Reveal</p>
     </div>
 
     <div id="main-content">
