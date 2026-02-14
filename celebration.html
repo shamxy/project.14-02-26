@@ -5,114 +5,111 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Yay! ❤️</title>
     <link rel="stylesheet" href="https://unpkg.com/bulma@0.8.0/css/bulma.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Sacramento&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #BC8887;
-            --dark-pink: #996E6D;
-            --soft-pink: #F4E2E2;
+            --primary-pink: #BC8887;
+            --dark-text: #996E6D;
+            --bg-soft: #F4E2E2;
         }
 
         body {
             margin: 0;
-            background: var(--soft-pink);
-            height: 100vh;
+            background: var(--bg-soft);
+            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            overflow: hidden;
-            font-family: 'Georgia', serif;
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
         }
 
-        /* FLOATING PETALS */
-        .petal {
-            position: fixed;
-            top: -10%;
-            pointer-events: none;
-            z-index: 1;
-            animation: fall linear infinite;
-        }
-        @keyframes fall {
-            to { transform: translateY(110vh) rotate(360deg); }
-        }
-
-        /* ENVELOPE STYLING */
-        #envelope-wrapper {
-            cursor: pointer;
-            z-index: 10;
-            transition: transform 0.3s ease;
-        }
-        #envelope-wrapper:hover { transform: scale(1.1); }
-
-        .envelope {
-            width: 150px;
-            height: 100px;
-            background: var(--primary);
-            position: relative;
-            border-radius: 0 0 10px 10px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-        .envelope::before {
-            content: '';
-            position: absolute;
-            top: -76px;
-            left: 0;
-            border-left: 75px solid transparent;
-            border-right: 75px solid transparent;
-            border-bottom: 76px solid var(--primary);
-        }
-
-        /* REVEAL CONTENT */
+        /* GLASS CARD */
         #main-content {
             display: none;
             text-align: center;
-            background: rgba(255, 255, 255, 0.5);
-            backdrop-filter: blur(10px);
-            padding: 50px 30px;
-            border-radius: 30px;
-            border: 1px solid rgba(255,255,255,0.6);
-            box-shadow: 0 15px 35px rgba(153, 110, 109, 0.2);
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(15px);
+            padding: 50px 20px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05);
             z-index: 5;
-            max-width: 400px;
-            width: 90%;
+            max-width: 600px;
+            width: 95%;
+            margin: 20px;
         }
 
-        .heart-jar {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            display: inline-block;
-            animation: pulse 1.5s infinite;
+        /* PHOTO GALLERY LAYOUT */
+        .photo-gallery {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 40px;
+            padding-top: 20px;
         }
 
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
+        .photo-frame {
+            background: white;
+            padding: 10px 10px 30px 10px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transition: 0.5s ease;
+            position: relative;
         }
 
+        .photo-frame img {
+            width: 160px;
+            height: 160px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Fan effect for the 3 images */
+        .pic-1 { transform: rotate(-10deg) translateX(20px); z-index: 1; }
+        .pic-2 { transform: rotate(2deg); z-index: 3; scale: 1.1; }
+        .pic-3 { transform: rotate(12deg) translateX(-20px); z-index: 2; }
+
+        .photo-frame:hover {
+            transform: rotate(0deg) scale(1.2);
+            z-index: 10;
+        }
+
+        /* TEXT SYTLES */
         .congrats-title {
-            color: var(--dark-pink);
-            font-size: 2rem;
-            font-weight: bold;
-            line-height: 1.2;
-            margin-bottom: 30px;
+            color: var(--dark-text);
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 1.4rem;
+            margin-bottom: 25px;
         }
 
         .save-btn {
-            background-color: var(--dark-pink);
+            background-color: var(--dark-text);
             color: white !important;
             border: none;
-            border-radius: 50px;
-            padding: 15px 30px;
-            font-weight: bold;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-radius: 5px;
+            padding: 15px 35px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
             transition: 0.3s;
+            cursor: pointer;
         }
-        .save-btn:hover { background-color: var(--primary); transform: translateY(-3px); }
-
-        .heart-particle {
-            position: absolute;
-            pointer-events: none;
-            z-index: 100;
+        
+        /* ENVELOPE (From previous steps) */
+        #envelope-wrapper { cursor: pointer; z-index: 10; text-align: center; }
+        .envelope {
+            width: 150px; height: 100px;
+            background: var(--primary-pink);
+            position: relative;
+            border-radius: 0 0 8px 8px;
+            margin: 0 auto;
+        }
+        .envelope::before {
+            content: ''; position: absolute; top: -75px; left: 0;
+            border-left: 75px solid transparent; border-right: 75px solid transparent;
+            border-bottom: 76px solid var(--primary-pink);
         }
     </style>
 </head>
@@ -120,75 +117,46 @@
 
     <div id="envelope-wrapper">
         <div class="envelope"></div>
-        <p style="text-align:center; margin-top: 20px; color: var(--dark-pink); font-weight: bold;">Open Me</p>
+        <p style="margin-top: 25px; color: var(--dark-text); font-weight: 700; text-transform: uppercase; font-size: 0.8rem;">Open Your Heart</p>
     </div>
 
     <div id="main-content">
-        <div class="heart-jar">❤️</div>
-        <h1 class="congrats-title">You Just Made Me The Happiest Person Ever!</h1>
-        <button id="save-date" class="save-btn">Save Our Date ❤️</button>
-        <div style="margin-top: 25px;">
-            <a href="index.html" style="color: var(--primary); font-size: 0.9rem;">← Our Journey</a>
+        <div class="photo-gallery">
+            <div class="photo-frame pic-1">
+                <img src="msg1.jpg" alt="Memory 1">
+            </div>
+            <div class="photo-frame pic-2">
+                <img src="msg2.jpg" alt="Memory 2">
+            </div>
+            <div class="photo-frame pic-3">
+                <img src="msg3.jpg" alt="Memory 3">
+            </div>
+        </div>
+
+        <h1 class="congrats-title">You said Yes! ❤️</h1>
+        <button id="save-date" class="save-btn">Save Our Date</button>
+        
+        <div style="margin-top: 30px;">
+            <a href="index.html" style="color: var(--primary-pink); font-weight: 700; text-transform: uppercase; font-size: 0.7rem;">← Back</a>
         </div>
     </div>
 
     <audio id="congratsMusic" src="https://files.catbox.moe/y65gcn.mp3" loop></audio>
 
     <script>
-        // Background Decoration
-        function createPetals() {
-            const symbols = ['🌸', '✨', '💖'];
-            for (let i = 0; i < 20; i++) {
-                const p = document.createElement('div');
-                p.className = 'petal';
-                p.innerHTML = symbols[Math.floor(Math.random() * symbols.length)];
-                p.style.left = Math.random() * 100 + 'vw';
-                p.style.animationDuration = (Math.random() * 3 + 5) + 's';
-                p.style.opacity = Math.random() * 0.5;
-                document.body.appendChild(p);
-            }
-        }
-        createPetals();
-
         const wrapper = document.getElementById('envelope-wrapper');
         const content = document.getElementById('main-content');
         const music = document.getElementById('congratsMusic');
 
-        // OPENING LOGIC
         wrapper.onclick = () => {
             wrapper.style.display = 'none';
             content.style.display = 'block';
             music.play();
-            burstHearts(50);
         };
 
-        function burstHearts(count) {
-            for (let i = 0; i < count; i++) {
-                const h = document.createElement('div');
-                h.className = 'heart-particle';
-                h.innerHTML = '❤️';
-                h.style.left = '50vw';
-                h.style.top = '50vh';
-                document.body.appendChild(h);
-
-                const angle = Math.random() * Math.PI * 2;
-                const velocity = Math.random() * 10 + 5;
-                const dist = Math.random() * 300 + 100;
-
-                h.animate([
-                    { transform: 'translate(-50%, -50%) scale(1)', opacity: 1 },
-                    { transform: `translate(${Math.cos(angle)*dist}px, ${Math.sin(angle)*dist}px) scale(0)`, opacity: 0 }
-                ], { duration: 2000, easing: 'ease-out' });
-
-                setTimeout(() => h.remove(), 2000);
-            }
-        }
-
-        // CALENDAR LOGIC
         document.getElementById('save-date').onclick = () => {
-            const eventName = encodeURIComponent("Our Anniversary ❤️");
-            const date = "20260214/20260215";
-            window.open(`https://www.google.com/calendar/render?action=TEMPLATE&text=${eventName}&dates=${date}`, '_blank');
+            const eventName = encodeURIComponent("The Day Pookie Said Yes ❤️");
+            window.open(`https://www.google.com/calendar/render?action=TEMPLATE&text=${eventName}`, '_blank');
         };
     </script>
 </body>
